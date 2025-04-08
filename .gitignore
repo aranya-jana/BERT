@@ -1,0 +1,8 @@
+# Virtual environment directories
+venv/
+env/
+.venv/
+.env/
+
+# Exported Model
+cyberbully_bert_model
