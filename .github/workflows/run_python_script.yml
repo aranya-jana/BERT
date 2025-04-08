@@ -26,4 +26,4 @@ jobs:
 
     - name: Run Python script
       run: |
-        python instructions.py
+        python new_bert.py
