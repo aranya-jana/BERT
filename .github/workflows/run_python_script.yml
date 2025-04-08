@@ -26,4 +26,4 @@ jobs:
 
     - name: Run Python script
       run: |
-        instructions.py    # Replace with your script name
+        instructions.py
