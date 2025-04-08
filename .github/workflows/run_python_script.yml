@@ -26,4 +26,5 @@ jobs:
 
     - name: Run Python script
       run: |
-        python instructions.py
+        python bert.py
+        python cyberbully_bert.py

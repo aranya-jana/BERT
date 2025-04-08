@@ -4,9 +4,11 @@ from transformers import BertTokenizer, BertForSequenceClassification, Trainer, 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from torch.utils.data import Dataset
+import os
 
 # Load dataset
-df = pd.read_csv("D:/Projects/BERT/merged_output.csv")
+base_dir = os.path.dirname(__file__)
+df = pd.read_csv(os.path.join(base_dir, "merged_output.csv"))
 df = df.dropna(subset=['text', 'not_cyberbullying'])
 df['label'] = df['not_cyberbullying'].astype(int)
 
