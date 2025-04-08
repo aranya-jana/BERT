@@ -6,13 +6,15 @@ from sklearn.model_selection import train_test_split
 from transformers import BertTokenizer, BertForSequenceClassification, Trainer, TrainingArguments
 from transformers import DataCollatorWithPadding
 from datasets import Dataset
+import os
 
 # Disable wandb properly
 report_to = "none"
 
 # Load datasets
-cyberbullying_df = pd.read_csv("/content/cleaned_cyberbullying_tweets.csv")
-hatespeech_df = pd.read_csv("/content/cleaned_x_hates.csv")
+base_dir = os.path.dirname(__file__)
+cyberbullying_df = pd.read_csv(os.path.join(base_dir, "cleaned_cyberbullying_tweets.csv"))
+hatespeech_df = pd.read_csv(os.path.join(base_dir, "cleaned_x_hates.csv"))
 
 # Label creation
 cyberbullying_df['label'] = 1 - cyberbullying_df['not_cyberbullying']
