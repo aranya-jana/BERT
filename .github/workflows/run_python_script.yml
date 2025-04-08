@@ -26,5 +26,5 @@ jobs:
 
     - name: Run Python script
       run: |
-        hello_world.py
-        instructions.py
+        python hello_world.py
+        python instructions.py
