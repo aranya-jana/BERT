@@ -1,0 +1,28 @@
+name: Update Workflow File
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Wait for 1 minute
+        run: sleep 60
+
+      - name: Update last line of run_python_script.yml
+        run: |
+          sed -i '$ s|.*|instructions.py    # Replace with your script name|' .github/workflows/run_python_script.yml
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/workflows/run_python_script.yml
+          git commit -m "Update last line of run_python_script.yml"
+          git push
