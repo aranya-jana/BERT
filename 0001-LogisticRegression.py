@@ -45,4 +45,4 @@ for dataset_name, df in context.items():
 
     # Hamming Loss
     hloss = hamming_loss(y_test, y_pred)
-    print(f"Hamming Loss: {hloss:.4f}")
+    print(f"\033[91mHamming Loss: {hloss:.4f}\033[0m")
