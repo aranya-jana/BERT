@@ -1,7 +1,8 @@
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset, random_split
-from transformers import BertTokenizer, BertModel, AdamW, get_linear_schedule_with_warmup
+from transformers import BertTokenizer, BertModel, get_linear_schedule_with_warmup
+from torch.optim import AdamW
 from sklearn.metrics import classification_report, accuracy_score, hamming_loss
 from LoadDatasets import load_datasets
 import numpy as np
@@ -70,7 +71,7 @@ for dataset_name, df in context.items():
     model = BERTClassifier(num_labels=y.shape[1]).to(device)
 
     criterion = nn.BCELoss()
-    optimizer = AdamW(model.parameters(), lr=2e-5)
+    optimizer = AdamW(model.parameters(), lr=2e-5, eps=1e-8)
     total_steps = len(train_loader) * 15
     scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=0, num_training_steps=total_steps)
 
