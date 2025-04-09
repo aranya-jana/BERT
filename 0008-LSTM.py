@@ -70,6 +70,10 @@ for dataset_name, df in context.items():
     vocab = {"<PAD>": 0, "<UNK>": 1}
     vocab.update({word: idx + 2 for idx, (word, _) in enumerate(counter.most_common(10000))})
 
+    # Filter out rows with empty or whitespace-only text
+    filtered_data = [(text, label) for text, label in zip(X, y) if text.strip()]
+    X, y = zip(*filtered_data)  # unzip into clean X and y
+
     # Train/test split
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
