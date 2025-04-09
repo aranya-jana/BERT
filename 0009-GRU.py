@@ -6,30 +6,42 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, accuracy_score, hamming_loss
 from LoadDatasets import load_datasets
 from collections import Counter
-from torch.nn.utils.rnn import pad_sequence, pack_padded_sequence
+from torch.nn.utils.rnn import pad_sequence, pack_padded_sequence, pad_packed_sequence
 import numpy as np
 import re
 
-# Tokenization
+# Tokenizer
+def tokenizer(text):
+    text = text.lower()
+    text = re.sub(r"[^a-z0-9\s]", "", text)
+    return text.strip().split()
+
 def tokenize(text):
     return re.findall(r'\b\w+\b', text.lower())
 
 # Dataset
 class TextDataset(Dataset):
-    def __init__(self, texts, labels, vocab):
+    def __init__(self, texts, labels, vocab, tokenizer):
         self.texts = texts
         self.labels = labels
         self.vocab = vocab
+        self.tokenizer = tokenizer
+
+    def __getitem__(self, idx):
+        text = self.texts[idx]
+        label = self.labels[idx]
+
+        tokens = self.tokenizer(text)
+        indices = [self.vocab.get(token, self.vocab["<UNK>"]) for token in tokens]
+
+        if not indices:
+            indices = [self.vocab["<UNK>"]]
+
+        return torch.tensor(indices), torch.tensor(label, dtype=torch.float32)
 
     def __len__(self):
         return len(self.texts)
 
-    def __getitem__(self, idx):
-        tokens = tokenize(self.texts[idx])
-        indices = [self.vocab.get(token, self.vocab["<UNK>"]) for token in tokens]
-        return torch.tensor(indices, dtype=torch.long), torch.tensor(self.labels[idx], dtype=torch.float)
-
-# Collate
 def collate_fn(batch):
     texts, labels = zip(*batch)
     lengths = torch.tensor([len(x) for x in texts])
@@ -53,7 +65,7 @@ class TextGRU(nn.Module):
         hidden_cat = torch.cat((hidden[-2], hidden[-1]), dim=1)
         return self.sigmoid(self.fc(hidden_cat))
 
-# Load dataset
+# Load data
 context = load_datasets()
 
 print("\033[95m\033[1m========== GRU ==========\033[0m")
@@ -65,14 +77,24 @@ for dataset_name, df in context.items():
     y = df.drop(columns=["text"]).fillna(0).astype(int).values
 
     tokenized = [tokenize(text) for text in X]
-    counter = Counter(token for sent in tokenized for token in sent)
+    counter = Counter(token for sentence in tokenized for token in sentence)
     vocab = {"<PAD>": 0, "<UNK>": 1}
     vocab.update({word: idx + 2 for idx, (word, _) in enumerate(counter.most_common(10000))})
 
+    filtered_data = []
+    for text, label in zip(X, y):
+        tokens = tokenizer(text)
+        indices = [vocab.get(token, vocab["<UNK>"]) for token in tokens]
+        if len(indices) > 0:
+            filtered_data.append((text, label))
+    X, y = zip(*filtered_data)
+    y = np.array(y)
+
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    train_dataset = TextDataset(X_train, y_train, vocab)
-    test_dataset = TextDataset(X_test, y_test, vocab)
+    train_dataset = TextDataset(X_train, y_train, vocab, tokenizer)
+    test_dataset = TextDataset(X_test, y_test, vocab, tokenizer)
+
     train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True, collate_fn=collate_fn)
     test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False, collate_fn=collate_fn)
 
@@ -94,7 +116,6 @@ for dataset_name, df in context.items():
             total_loss += loss.item()
         print(f"Epoch {epoch+1} Loss: {total_loss:.4f}")
 
-    # Evaluation
     model.eval()
     all_preds, all_targets = [], []
     with torch.no_grad():
@@ -113,10 +134,10 @@ for dataset_name, df in context.items():
     label_accuracies = (y_pred == y_true).mean(axis=0)
     print("\033[94m\n=== Accuracy Per Label ===\033[0m")
     for label, acc in zip(df.columns[1:], label_accuracies):
-        print(f"{label}: \033[92m{acc}\033[0m")
+        print(f"{label}: \033[92m{acc:.2f}\033[0m")
 
     subset_accuracy = accuracy_score(y_true, y_pred)
-    print(f"\n=== Subset Accuracy (exact match of all labels): \033[92m{subset_accuracy}\033[0m")
+    print(f"\n=== Subset Accuracy (exact match of all labels): \033[92m{subset_accuracy:.2f}\033[0m")
 
     hloss = hamming_loss(y_true, y_pred)
     print(f"\033[91mHamming Loss: {hloss:.4f}\033[0m")
