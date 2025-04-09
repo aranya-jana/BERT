@@ -25,6 +25,10 @@ jobs:
         pip install pandas
         pip install scikit-learn
         pip install xgboost
+        pip install tensorflow
+        pip install transformers 
+        pip install datasets
+        pip install torch
 
     - name: Run Python script
       run: |
@@ -34,3 +38,6 @@ jobs:
         python 0004-DecisionTree.py
         python 0005-RandomForest.py
         python 0006-XGBoost.py
+        python 0007-CNN.py
+        python 0008-LSTM.py
+        python 0009-GRU.py

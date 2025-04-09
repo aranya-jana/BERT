@@ -4,14 +4,14 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, accuracy_score, hamming_loss
 
 from tensorflow.keras.models import Model
-from tensorflow.keras.layers import Input, Embedding, LSTM, Dense, Dropout
+from tensorflow.keras.layers import Input, Embedding, GRU, Dense, Dropout
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 # Load data
 context = load_datasets()
 
-print("\033[95m\033[1m========== LSTM ==========\033[0m")
+print("\033[95m\033[1m========== GRU ==========\033[0m")
 
 for dataset_name, df in context.items():
     print(f"\033[93m===== Processing dataset: {dataset_name} =====\033[0m")
@@ -19,7 +19,7 @@ for dataset_name, df in context.items():
     X = df["text"]
     y = df.drop(columns=["text"]).values
 
-    # Tokenization and padding
+    # Tokenization
     max_words = 10000
     max_len = 100
 
@@ -31,10 +31,10 @@ for dataset_name, df in context.items():
     # Split
     X_train, X_test, y_train, y_test = train_test_split(X_pad, y, test_size=0.2, random_state=42)
 
-    # Build LSTM model
+    # GRU model
     inputs = Input(shape=(max_len,))
     x = Embedding(input_dim=max_words, output_dim=128, input_length=max_len)(inputs)
-    x = LSTM(128, return_sequences=False)(x)
+    x = GRU(128, return_sequences=False)(x)
     x = Dropout(0.5)(x)
     x = Dense(64, activation='relu')(x)
     outputs = Dense(y.shape[1], activation='sigmoid')(x)
