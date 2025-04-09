@@ -26,6 +26,7 @@ jobs:
         pip install pandas
         pip install scikit-learn
         pip install xgboost
+        pip freeze > requirements.txt
 
     - name: Run Python script
       run: |
