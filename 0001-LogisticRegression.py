@@ -30,18 +30,18 @@ for dataset_name, df in context.items():
     y_pred = model.predict(X_test)
 
     # Step 7: Evaluation
-    print("=== Classification Report (per label) ===")
+    print("\033[94m=== Classification Report (per label) ===\033[0m")
     print(classification_report(y_test, y_pred, target_names=y.columns))
 
     # Accuracy per label
     label_accuracies = (y_pred == y_test).mean(axis=0)
-    print("\n=== Accuracy Per Label ===")
+    print("\033[94m\n=== Accuracy Per Label ===\033[0m")
     for label, acc in zip(y.columns, label_accuracies):
-        print(f"\033[92m{label}\033[0m: \033[94m{acc:.2f}\033[0m")
+        print(f"{label}: \033[92m{acc:.2f}\033[0m")
 
     # Subset Accuracy (exact match)
     subset_accuracy = accuracy_score(y_test, y_pred)
-    print(f"\n=== Subset Accuracy (exact match of all labels): {subset_accuracy:.2f}")
+    print(f"\n=== Subset Accuracy (exact match of all labels): \033[92m{subset_accuracy:.2f}\033[0m")
 
     # Hamming Loss
     hloss = hamming_loss(y_test, y_pred)
