@@ -1,149 +1,158 @@
+import time
+import numpy as np
 import torch
 import torch.nn as nn
-from torch.utils.data import DataLoader, Dataset, random_split
-from transformers import BertTokenizer, BertModel, get_linear_schedule_with_warmup
-from torch.optim import AdamW
+from torch.utils.data import DataLoader, Dataset
+from transformers import BertTokenizer, BertModel, BertConfig
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, accuracy_score, hamming_loss
 from LoadDatasets import load_datasets
-import numpy as np
-import time
+from torch.optim import AdamW
+from collections import defaultdict
+from tqdm import tqdm
 
+# Dataset class
 class BERTDataset(Dataset):
-    def __init__(self, texts, labels, tokenizer, max_len):
+    def __init__(self, texts, labels, tokenizer, max_len=128):
         self.texts = texts
         self.labels = labels
         self.tokenizer = tokenizer
         self.max_len = max_len
 
+    def __getitem__(self, idx):
+        text = self.texts[idx]
+        label = self.labels[idx]
+        encoding = self.tokenizer(
+            text,
+            padding="max_length",
+            truncation=True,
+            max_length=self.max_len,
+            return_tensors="pt"
+        )
+        return {
+            "input_ids": encoding["input_ids"].squeeze(0),
+            "attention_mask": encoding["attention_mask"].squeeze(0),
+            "labels": torch.tensor(label, dtype=torch.float32),
+        }
+
     def __len__(self):
         return len(self.texts)
 
-    def __getitem__(self, idx):
-        text = self.texts[idx]
-        label = torch.tensor(self.labels[idx], dtype=torch.float32)
-        encoding = self.tokenizer(
-            text,
-            padding='max_length',
-            truncation=True,
-            max_length=self.max_len,
-            return_tensors='pt'
-        )
-        input_ids = encoding['input_ids'].squeeze(0)
-        attention_mask = encoding['attention_mask'].squeeze(0)
-        return input_ids, attention_mask, label
-
+# BERT model for multi-label
 class BERTClassifier(nn.Module):
     def __init__(self, num_labels):
         super(BERTClassifier, self).__init__()
-        self.bert = BertModel.from_pretrained('bert-base-uncased')
-        self.fc = nn.Linear(self.bert.config.hidden_size, num_labels)
+        self.bert = BertModel.from_pretrained("bert-base-uncased")
+        self.dropout = nn.Dropout(0.3)
+        self.classifier = nn.Linear(self.bert.config.hidden_size, num_labels)
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, input_ids, attention_mask):
         outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
-        cls_output = outputs.last_hidden_state[:, 0, :]
-        return self.sigmoid(self.fc(cls_output))
+        cls_output = outputs.last_hidden_state[:, 0, :]  # [CLS] token
+        out = self.classifier(self.dropout(cls_output))
+        return self.sigmoid(out)
 
-print("\033[95m\033[1m========== BERT with Early Stopping ==========" + "\033[0m")
-
+# Load datasets
+print("\033[95m\033[1m========== BERT with Early Stopping ==========\033[0m")
 context = load_datasets()
 
 for dataset_name, df in context.items():
     print(f"\033[93m===== Processing dataset: {dataset_name} =====\033[0m")
+    start_time = time.time()
 
+    # Prepare data
     X = df["text"].tolist()
     y = df.drop(columns=["text"]).fillna(0).astype(int).values
 
-    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-    max_len = 128
-    batch_size = 16
-    dataset = BERTDataset(X, y, tokenizer, max_len)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
 
-    val_split = 0.2
-    val_size = int(len(dataset) * val_split)
-    train_size = len(dataset) - val_size
-    train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
+    train_dataset = BERTDataset(X_train, y_train, tokenizer)
+    test_dataset = BERTDataset(X_test, y_test, tokenizer)
 
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    val_loader = DataLoader(val_dataset, batch_size=batch_size)
+    train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
+    test_loader = DataLoader(test_dataset, batch_size=16)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = BERTClassifier(num_labels=y.shape[1]).to(device)
-
     criterion = nn.BCELoss()
-    optimizer = AdamW(model.parameters(), lr=2e-5, eps=1e-8)
-    total_steps = len(train_loader) * 15
-    scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=0, num_training_steps=total_steps)
+    optimizer = AdamW(model.parameters(), lr=2e-5)
 
-    best_val_loss = float('inf')
-    patience = 3
-    patience_counter = 0
+    # Training loop with early stopping
+    epochs = 10
+    patience = 2
+    best_loss = float("inf")
+    early_stopping_counter = 0
 
-    for epoch in range(15):
-        print(f"\nEpoch {epoch+1}/15")
+    for epoch in range(epochs):
         model.train()
         train_loss = 0.0
-        start_time = time.time()
+        epoch_start = time.time()
 
-        for input_ids, attention_mask, labels in train_loader:
-            input_ids, attention_mask, labels = input_ids.to(device), attention_mask.to(device), labels.to(device)
+        print(f"\n\033[96m[Epoch {epoch+1}/{epochs}] Training...\033[0m")
+
+        for batch in tqdm(train_loader, desc="Training", leave=False):
+            input_ids = batch["input_ids"].to(device)
+            attention_mask = batch["attention_mask"].to(device)
+            labels = batch["labels"].to(device)
+
             optimizer.zero_grad()
             outputs = model(input_ids, attention_mask)
             loss = criterion(outputs, labels)
             loss.backward()
             optimizer.step()
-            scheduler.step()
             train_loss += loss.item()
 
-        avg_train_loss = train_loss / len(train_loader)
-        print(f"Train Loss: {avg_train_loss:.4f} | Time: {time.time() - start_time:.2f}s")
+        avg_loss = train_loss / len(train_loader)
+        epoch_time = time.time() - epoch_start
 
-        # Validation
-        model.eval()
-        val_loss = 0.0
-        all_preds, all_targets = [], []
-        with torch.no_grad():
-            for input_ids, attention_mask, labels in val_loader:
-                input_ids, attention_mask, labels = input_ids.to(device), attention_mask.to(device), labels.to(device)
-                outputs = model(input_ids, attention_mask)
-                loss = criterion(outputs, labels)
-                val_loss += loss.item()
-                all_preds.append((outputs > 0.5).cpu().numpy())
-                all_targets.append(labels.cpu().numpy())
+        print(f"🟣 Epoch {epoch+1} completed | Loss: {avg_loss:.4f} | Time: {epoch_time:.2f}s")
 
-        avg_val_loss = val_loss / len(val_loader)
-        print(f"Validation Loss: {avg_val_loss:.4f}")
-
-        if avg_val_loss < best_val_loss:
-            best_val_loss = avg_val_loss
-            patience_counter = 0
-            torch.save(model.state_dict(), "best_bert_model.pt")
-            print("\033[92mNew best model saved!\033[0m")
+        # Early Stopping Check
+        if avg_loss < best_loss:
+            best_loss = avg_loss
+            early_stopping_counter = 0
+            print("\033[92m✓ Validation loss improved — saving model...\033[0m")
+            torch.save(model.state_dict(), f"best_model_{dataset_name}.pt")
         else:
-            patience_counter += 1
-            print(f"\033[91mNo improvement. Patience: {patience_counter}/{patience}\033[0m")
-            if patience_counter >= patience:
-                print("\033[91mEarly stopping triggered.\033[0m")
+            early_stopping_counter += 1
+            print(f"\033[91m✘ No improvement. Early stopping patience: {early_stopping_counter}/{patience}\033[0m")
+            if early_stopping_counter >= patience:
+                print("\033[91m⚠️ Stopping early due to no improvement.\033[0m")
                 break
 
     # Evaluation
-    print("\n\033[96mEvaluating best model on validation set...\033[0m")
-    model.load_state_dict(torch.load("best_bert_model.pt"))
+    print("\n\033[96m[Evaluation] Running final evaluation...\033[0m")
+    model.load_state_dict(torch.load(f"best_model_{dataset_name}.pt"))
     model.eval()
+
     all_preds, all_targets = [], []
     with torch.no_grad():
-        for input_ids, attention_mask, labels in val_loader:
-            input_ids, attention_mask = input_ids.to(device), attention_mask.to(device)
-            outputs = model(input_ids, attention_mask)
-            all_preds.append((outputs > 0.5).cpu().numpy())
+        for batch in tqdm(test_loader, desc="Evaluating", leave=False):
+            input_ids = batch["input_ids"].to(device)
+            attention_mask = batch["attention_mask"].to(device)
+            labels = batch["labels"]
+
+            outputs = model(input_ids, attention_mask).cpu().numpy()
+            all_preds.append((outputs > 0.5).astype(int))
             all_targets.append(labels.numpy())
 
     y_pred = np.vstack(all_preds)
     y_true = np.vstack(all_targets)
 
-    print("\033[94m\n=== Classification Report ===\033[0m")
+    print("\n\033[94m=== Classification Report (per label) ===\033[0m")
     print(classification_report(y_true, y_pred, target_names=df.columns[1:]))
 
-    subset_acc = accuracy_score(y_true, y_pred)
-    print(f"Subset Accuracy: \033[92m{subset_acc:.4f}\033[0m")
-    print(f"Hamming Loss: \033[91m{hamming_loss(y_true, y_pred):.4f}\033[0m")
+    label_accuracies = (y_pred == y_true).mean(axis=0)
+    print("\033[94m\n=== Accuracy Per Label ===\033[0m")
+    for label, acc in zip(df.columns[1:], label_accuracies):
+        print(f"{label}: \033[92m{acc:.2f}\033[0m")
+
+    subset_accuracy = accuracy_score(y_true, y_pred)
+    hloss = hamming_loss(y_true, y_pred)
+
+    print(f"\n✅ Subset Accuracy: \033[92m{subset_accuracy:.4f}\033[0m")
+    print(f"🔻 Hamming Loss: \033[91m{hloss:.4f}\033[0m")
+
+    print(f"🕒 Total time: {time.time() - start_time:.2f} seconds")
