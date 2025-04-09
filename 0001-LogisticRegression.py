@@ -8,6 +8,8 @@ from sklearn.metrics import classification_report, accuracy_score, hamming_loss
 # Step 1: Load data
 context = load_datasets()
 
+print("\033[95m\033[1m========== LOGISTIC REGRESSION ==========\033[0m")
+
 for dataset_name, df in context.items():
     print(f"\033[93m===== Processing dataset: {dataset_name} =====\033[0m")
     # Step 2: Separate features and target
