@@ -25,7 +25,7 @@ jobs:
         pip install pandas
         pip install scikit-learn
         pip install xgboost
-        pip install tensorflow
+        pip install torch
         pip install transformers 
         pip install datasets
         pip install torch
