@@ -9,9 +9,7 @@ from sklearn.metrics import classification_report, accuracy_score, hamming_loss
 context = load_datasets()
 
 for dataset_name, df in context.items():
-    print("\n" * 5)
-
-    print(f"===== Processing dataset: {dataset_name} =====")
+    print(f"\033[93m===== Processing dataset: {dataset_name} =====\033[0m")
     # Step 2: Separate features and target
     X = df["text"]
     y = df.drop(columns=["text"])  # Multi-label targets
