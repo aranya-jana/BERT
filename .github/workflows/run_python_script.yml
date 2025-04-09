@@ -29,6 +29,9 @@ jobs:
         pip install transformers 
         pip install datasets
         pip install torch
+        pip install tqdm
+        pip install huggingface_hub[hf_xet]
+        # pip install hf_xet
 
     - name: Run Python script
       run: |
@@ -43,5 +46,6 @@ jobs:
         # python 0009-GRU.py
         python 0010-BERT.py
         # python 0011-XLNet.py
-        # python 0012-RoBERTa.py
-        # python 0013-ALBERT.py
+        # python 0012-DistilBERT.py
+        # python 0013-RoBERTa.py
+        # python 0014-ALBERT.py
