@@ -120,10 +120,10 @@ for dataset_name, df in context.items():
     label_accuracies = (y_pred == y_true).mean(axis=0)
     print("\033[94m\n=== Accuracy Per Label ===\033[0m")
     for label, acc in zip(df.columns[1:], label_accuracies):
-        print(f"{label}: \033[92m{acc:.2f}\033[0m")
+        print(f"{label}: \033[92m{acc}\033[0m")
 
     subset_accuracy = accuracy_score(y_true, y_pred)
-    print(f"\n=== Subset Accuracy (exact match of all labels): \033[92m{subset_accuracy:.2f}\033[0m")
+    print(f"\n=== Subset Accuracy (exact match of all labels): \033[92m{subset_accuracy}\033[0m")
 
     hloss = hamming_loss(y_true, y_pred)
     print(f"\033[91mHamming Loss: {hloss:.4f}\033[0m")
