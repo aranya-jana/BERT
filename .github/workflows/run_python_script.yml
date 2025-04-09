@@ -44,7 +44,8 @@ jobs:
         # python 0007-CNN.py
         # python 0008-LSTM.py
         # python 0009-GRU.py
-        python 0010-BERT.py
+        # python 0010-BERT.py
+        python 0011-BERT.py
         # python 0011-XLNet.py
         # python 0012-DistilBERT.py
         # python 0013-RoBERTa.py
