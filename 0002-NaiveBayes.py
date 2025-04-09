@@ -1,26 +1,51 @@
 from LoadDatasets import load_datasets
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.multioutput import MultiOutputClassifier
+from sklearn.metrics import classification_report, accuracy_score, hamming_loss
 
-merged_df = load_datasets()
+# Step 1: Load data
+context = load_datasets()
 
-# Split
-X_train, X_test, y_train, y_test = train_test_split(
-    merged_df['text'], merged_df['label'], test_size=0.2, random_state=42
-)
+for dataset_name, df in context.items():
+    print(f"\033[93m===== Processing dataset: {dataset_name} =====\033[0m")
+    
+    # Step 2: Separate features and targets
+    X = df["text"]
+    y = df.drop(columns=["text"])  # Multi-label targets
 
-# vertorized
-vectorizer = TfidfVectorizer(max_features=5000)
-X_train_tfidf = vectorizer.fit_transform(X_train)
-X_test_tfidf = vectorizer.transform(X_test)
+    # Step 3: Vectorize text
+    vectorizer = TfidfVectorizer(stop_words="english", max_features=1000)
+    X_vectorized = vectorizer.fit_transform(X)
 
-# Naïve Bayes Model
-nb_model = MultinomialNB()
-nb_model.fit(X_train_tfidf, y_train)
+    # Step 4: Split data
+    X_train, X_test, y_train, y_test = train_test_split(
+        X_vectorized, y, test_size=0.2, random_state=42
+    )
 
-# Accuracy
-y_pred_nb = nb_model.predict(X_test_tfidf)
-accuracy_nb = accuracy_score(y_test, y_pred_nb)
-print("Naïve Bayes Accuracy : {:.2f}".format(accuracy_nb))
+    # Step 5: Train model using Naive Bayes
+    nb = MultinomialNB()
+    model = MultiOutputClassifier(nb)
+    model.fit(X_train, y_train)
+
+    # Step 6: Make predictions
+    y_pred = model.predict(X_test)
+
+    # Step 7: Evaluation
+    print("\033[94m=== Classification Report (per label) ===\033[0m")
+    print(classification_report(y_test, y_pred, target_names=y.columns))
+
+    # Accuracy per label
+    label_accuracies = (y_pred == y_test).mean(axis=0)
+    print("\033[94m\n=== Accuracy Per Label ===\033[0m")
+    for label, acc in zip(y.columns, label_accuracies):
+        print(f"{label}: \033[92m{acc:.2f}\033[0m")
+
+    # Subset Accuracy (exact match)
+    subset_accuracy = accuracy_score(y_test, y_pred)
+    print(f"\n=== Subset Accuracy (exact match of all labels): \033[92m{subset_accuracy:.2f}\033[0m")
+
+    # Hamming Loss
+    hloss = hamming_loss(y_test, y_pred)
+    print(f"\033[91mHamming Loss: {hloss:.4f}\033[0m")

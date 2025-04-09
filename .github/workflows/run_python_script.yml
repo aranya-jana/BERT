@@ -29,3 +29,4 @@ jobs:
     - name: Run Python script
       run: |
         python 0001-LogisticRegression.py
+        python 0002-NaiveBayes.py
