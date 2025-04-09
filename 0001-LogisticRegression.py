@@ -37,7 +37,7 @@ for dataset_name, df in context.items():
     label_accuracies = (y_pred == y_test).mean(axis=0)
     print("\n=== Accuracy Per Label ===")
     for label, acc in zip(y.columns, label_accuracies):
-        print(f"{label}: {acc:.2f}")
+        print(f"\033[92m{label}\033[0m: \033[94m{acc:.2f}\033[0m")
 
     # Subset Accuracy (exact match)
     subset_accuracy = accuracy_score(y_test, y_pred)
