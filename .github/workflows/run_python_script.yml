@@ -25,6 +25,7 @@ jobs:
         # pip install -r requirements.txt # If you have a requirements.txt file
         pip install pandas
         pip install scikit-learn
+        pip install xgboost
 
     - name: Run Python script
       run: |
@@ -32,3 +33,5 @@ jobs:
         python 0002-NaiveBayes.py
         python 0003-SVM.py
         python 0004-DecisionTree.py
+        python 0005-RandomForest.py
+        python 0006-XGBoost.py
