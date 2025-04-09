@@ -11,23 +11,40 @@ import numpy as np
 import re
 
 # Tokenization
+
+def tokenizer(text):
+    # Lowercase, remove non-alphabetic characters (except spaces), split by whitespace
+    text = text.lower()
+    text = re.sub(r"[^a-z0-9\s]", "", text)  # Keep alphanumerics and spaces
+    tokens = text.strip().split()
+    return tokens
+
 def tokenize(text):
     return re.findall(r'\b\w+\b', text.lower())
 
 # Dataset
 class TextDataset(Dataset):
-    def __init__(self, texts, labels, vocab):
+    def __init__(self, texts, labels, vocab, tokenizer):
         self.texts = texts
         self.labels = labels
         self.vocab = vocab
+        self.tokenizer = tokenizer
+
+    def __getitem__(self, idx):
+        text = self.texts[idx]
+        label = self.labels[idx]
+
+        tokens = self.tokenizer(text)
+        indices = [self.vocab.get(token, self.vocab["<UNK>"]) for token in tokens]
+
+        if not indices:
+            indices = [self.vocab["<UNK>"]]  # Fallback to single unknown token
+
+        return torch.tensor(indices), torch.tensor(label, dtype=torch.float32)
 
     def __len__(self):
         return len(self.texts)
 
-    def __getitem__(self, idx):
-        tokens = tokenize(self.texts[idx])
-        indices = [self.vocab.get(token, self.vocab["<UNK>"]) for token in tokens]
-        return torch.tensor(indices, dtype=torch.long), torch.tensor(self.labels[idx], dtype=torch.float)
 
 # Collate with length-based sorting
 def collate_fn(batch):
@@ -71,7 +88,12 @@ for dataset_name, df in context.items():
     vocab.update({word: idx + 2 for idx, (word, _) in enumerate(counter.most_common(10000))})
 
     # Filter out rows with empty or whitespace-only text
-    filtered_data = [(text, label) for text, label in zip(X, y) if text.strip()]
+    filtered_data = []
+    for text, label in zip(X, y):
+        tokens = tokenizer(text)
+        indices = [vocab.get(token, vocab["<UNK>"]) for token in tokens]
+        if len(indices) > 0:
+            filtered_data.append((text, label))
     X, y = zip(*filtered_data)  # unzip into clean X and y
     y = np.array(y)
 
