@@ -6,3 +6,6 @@ env/
 
 # Exported Model
 cyberbully_bert_model
+
+# Python cache files
+__pycache__/

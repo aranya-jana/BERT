@@ -1,26 +1,50 @@
 from LoadDatasets import load_datasets
+from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
-from sklearn.model_selection import train_test_split
+from sklearn.multioutput import MultiOutputClassifier
+from sklearn.metrics import classification_report, accuracy_score, hamming_loss
 
-merged_df = load_datasets()
+# Step 1: Load data
+context = load_datasets()
 
-# Split
-X_train, X_test, y_train, y_test = train_test_split(
-    merged_df['text'], merged_df['label'], test_size=0.2, random_state=42
-)
+print("\033[95m\033[1m========== LOGISTIC REGRESSION ==========\033[0m")
 
-# vertorized
-vectorizer = TfidfVectorizer(max_features=5000)
-X_train_tfidf = vectorizer.fit_transform(X_train)
-X_test_tfidf = vectorizer.transform(X_test)
+for dataset_name, df in context.items():
+    print(f"\033[93m===== Processing dataset: {dataset_name} =====\033[0m")
+    # Step 2: Separate features and target
+    X = df["text"]
+    y = df.drop(columns=["text"])  # Multi-label targets
 
-# Logistic
-model = LogisticRegression()
-model.fit(X_train_tfidf, y_train)
+    # Step 3: Vectorize text
+    vectorizer = TfidfVectorizer(stop_words="english", max_features=1000)
+    X_vectorized = vectorizer.fit_transform(X)
 
-# Accuracy
-y_pred = model.predict(X_test_tfidf)
-accuracy = accuracy_score(y_test, y_pred)
-print("Logistic Regression Accuracy : {:.2f}".format(accuracy))
+    # Step 4: Split data
+    X_train, X_test, y_train, y_test = train_test_split(X_vectorized, y, test_size=0.2, random_state=42)
+
+    # Step 5: Train model
+    lr = LogisticRegression(max_iter=1000)
+    model = MultiOutputClassifier(lr)
+    model.fit(X_train, y_train)
+
+    # Step 6: Make predictions
+    y_pred = model.predict(X_test)
+
+    # Step 7: Evaluation
+    print("\033[94m=== Classification Report (per label) ===\033[0m")
+    print(classification_report(y_test, y_pred, target_names=y.columns))
+
+    # Accuracy per label
+    label_accuracies = (y_pred == y_test).mean(axis=0)
+    print("\033[94m\n=== Accuracy Per Label ===\033[0m")
+    for label, acc in zip(y.columns, label_accuracies):
+        print(f"{label}: \033[92m{acc}\033[0m")
+
+    # Subset Accuracy (exact match)
+    subset_accuracy = accuracy_score(y_test, y_pred)
+    print(f"\n=== Subset Accuracy (exact match of all labels): \033[92m{subset_accuracy}\033[0m")
+
+    # Hamming Loss
+    hloss = hamming_loss(y_test, y_pred)
+    print(f"\033[91mHamming Loss: {hloss:.4f}\033[0m")

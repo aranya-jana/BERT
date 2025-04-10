@@ -22,8 +22,31 @@ jobs:
     - name: Install dependencies (if any)
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt # If you have a requirements.txt file
+        pip install pandas
+        pip install scikit-learn
+        pip install xgboost
+        # pip install torch
+        # pip install transformers 
+        # pip install datasets
+        # pip install torch
+        # pip install tqdm
+        # pip install huggingface_hub[hf_xet]
+        # pip install hf_xet
 
     - name: Run Python script
       run: |
-        python instructions.py # Replace with the name of your Python script
+        python 0001-LogisticRegression.py
+        python 0002-NaiveBayes.py
+        python 0003-SVM.py
+        python 0004-DecisionTree.py
+        python 0005-RandomForest.py
+        python 0006-XGBoost.py
+        # python 0007-CNN.py
+        # python 0008-LSTM.py
+        # python 0009-GRU.py
+        # python 0010-BERT.py
+        # python 0011-BERT.py
+        # python 0011-XLNet.py
+        # python 0012-DistilBERT.py
+        # python 0013-RoBERTa.py
+        # python 0014-ALBERT.py
