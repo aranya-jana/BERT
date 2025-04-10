@@ -1,0 +1,689 @@
+2025-04-10T03:10:24.1404053Z Current runner version: '2.323.0'
+2025-04-10T03:10:24.1438604Z ##[group]Operating System
+2025-04-10T03:10:24.1439903Z Ubuntu
+2025-04-10T03:10:24.1440738Z 24.04.2
+2025-04-10T03:10:24.1441501Z LTS
+2025-04-10T03:10:24.1442365Z ##[endgroup]
+2025-04-10T03:10:24.1443432Z ##[group]Runner Image
+2025-04-10T03:10:24.1444319Z Image: ubuntu-24.04
+2025-04-10T03:10:24.1445292Z Version: 20250406.1.0
+2025-04-10T03:10:24.1446976Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250406.1/images/ubuntu/Ubuntu2404-Readme.md
+2025-04-10T03:10:24.1449469Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250406.1
+2025-04-10T03:10:24.1451049Z ##[endgroup]
+2025-04-10T03:10:24.1451912Z ##[group]Runner Image Provisioner
+2025-04-10T03:10:24.1453229Z 2.0.422.1
+2025-04-10T03:10:24.1454009Z ##[endgroup]
+2025-04-10T03:10:24.1455769Z ##[group]GITHUB_TOKEN Permissions
+2025-04-10T03:10:24.1458780Z Contents: read
+2025-04-10T03:10:24.1459709Z Metadata: read
+2025-04-10T03:10:24.1460777Z Packages: read
+2025-04-10T03:10:24.1461756Z ##[endgroup]
+2025-04-10T03:10:24.1465901Z Secret source: Actions
+2025-04-10T03:10:24.1467195Z Prepare workflow directory
+2025-04-10T03:10:24.2166243Z Prepare all required actions
+2025-04-10T03:10:24.2223227Z Getting action download info
+2025-04-10T03:10:24.7802774Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-04-10T03:10:24.7803805Z Version: 4.2.2
+2025-04-10T03:10:24.7804857Z Digest: sha256:ccb2698953eaebd21c7bf6268a94f9c26518a7e38e27e0b83c1fe1ad049819b1
+2025-04-10T03:10:24.7806001Z Source commit SHA: 11bd71901bbe5b1630ceea73d27597364c9af683
+2025-04-10T03:10:24.7806674Z ##[endgroup]
+2025-04-10T03:10:24.8801604Z ##[group]Download immutable action package 'actions/setup-python@v5'
+2025-04-10T03:10:24.8802393Z Version: 5.5.0
+2025-04-10T03:10:24.8803475Z Digest: sha256:1fac95d751afd58314aebd2ab01d4bf3b3109a441917bd2cac2a22898ec494f7
+2025-04-10T03:10:24.8804467Z Source commit SHA: 8d9ed9ac5c53483de85588cdf95a591a75ab9f55
+2025-04-10T03:10:24.8805117Z ##[endgroup]
+2025-04-10T03:10:25.3817746Z Complete job name: build
+2025-04-10T03:10:25.4444933Z ##[group]Run actions/checkout@v4
+2025-04-10T03:10:25.4445727Z with:
+2025-04-10T03:10:25.4446105Z   repository: aranya-jana/BERT
+2025-04-10T03:10:25.4446713Z   token: ***
+2025-04-10T03:10:25.4447082Z   ssh-strict: true
+2025-04-10T03:10:25.4447466Z   ssh-user: git
+2025-04-10T03:10:25.4447846Z   persist-credentials: true
+2025-04-10T03:10:25.4448286Z   clean: true
+2025-04-10T03:10:25.4448683Z   sparse-checkout-cone-mode: true
+2025-04-10T03:10:25.4449153Z   fetch-depth: 1
+2025-04-10T03:10:25.4449534Z   fetch-tags: false
+2025-04-10T03:10:25.4449923Z   show-progress: true
+2025-04-10T03:10:25.4450310Z   lfs: false
+2025-04-10T03:10:25.4450671Z   submodules: false
+2025-04-10T03:10:25.4451070Z   set-safe-directory: true
+2025-04-10T03:10:25.4451686Z ##[endgroup]
+2025-04-10T03:10:25.6720204Z Syncing repository: aranya-jana/BERT
+2025-04-10T03:10:25.6723017Z ##[group]Getting Git version info
+2025-04-10T03:10:25.6724097Z Working directory is '/home/runner/work/BERT/BERT'
+2025-04-10T03:10:25.6726719Z [command]/usr/bin/git version
+2025-04-10T03:10:25.6838295Z git version 2.49.0
+2025-04-10T03:10:25.6870710Z ##[endgroup]
+2025-04-10T03:10:25.6885540Z Temporarily overriding HOME='/home/runner/work/_temp/45f68c81-1904-479d-b2b4-7392b17d8548' before making global git config changes
+2025-04-10T03:10:25.6892923Z Adding repository directory to the temporary git global config as a safe directory
+2025-04-10T03:10:25.6905813Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/BERT/BERT
+2025-04-10T03:10:25.6946254Z Deleting the contents of '/home/runner/work/BERT/BERT'
+2025-04-10T03:10:25.6954251Z ##[group]Initializing the repository
+2025-04-10T03:10:25.6956741Z [command]/usr/bin/git init /home/runner/work/BERT/BERT
+2025-04-10T03:10:25.7025202Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-04-10T03:10:25.7027726Z hint: is subject to change. To configure the initial branch name to use in all
+2025-04-10T03:10:25.7029417Z hint: of your new repositories, which will suppress this warning, call:
+2025-04-10T03:10:25.7030946Z hint:
+2025-04-10T03:10:25.7034446Z hint: 	git config --global init.defaultBranch <name>
+2025-04-10T03:10:25.7036115Z hint:
+2025-04-10T03:10:25.7038651Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-04-10T03:10:25.7040289Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-04-10T03:10:25.7041591Z hint:
+2025-04-10T03:10:25.7042230Z hint: 	git branch -m <name>
+2025-04-10T03:10:25.7043533Z Initialized empty Git repository in /home/runner/work/BERT/BERT/.git/
+2025-04-10T03:10:25.7050125Z [command]/usr/bin/git remote add origin https://github.com/aranya-jana/BERT
+2025-04-10T03:10:25.7090117Z ##[endgroup]
+2025-04-10T03:10:25.7091979Z ##[group]Disabling automatic garbage collection
+2025-04-10T03:10:25.7094420Z [command]/usr/bin/git config --local gc.auto 0
+2025-04-10T03:10:25.7127937Z ##[endgroup]
+2025-04-10T03:10:25.7130542Z ##[group]Setting up auth
+2025-04-10T03:10:25.7134229Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-04-10T03:10:25.7168774Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-04-10T03:10:25.7501630Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-04-10T03:10:25.7535836Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-04-10T03:10:25.7779344Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-04-10T03:10:25.7824967Z ##[endgroup]
+2025-04-10T03:10:25.7828175Z ##[group]Fetching the repository
+2025-04-10T03:10:25.7836306Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +94342360b152f41281c398e47fae2beb0678bcf1:refs/remotes/origin/main
+2025-04-10T03:10:27.1251734Z From https://github.com/aranya-jana/BERT
+2025-04-10T03:10:27.1253667Z  * [new ref]         94342360b152f41281c398e47fae2beb0678bcf1 -> origin/main
+2025-04-10T03:10:27.1282138Z ##[endgroup]
+2025-04-10T03:10:27.1288733Z ##[group]Determining the checkout info
+2025-04-10T03:10:27.1290369Z ##[endgroup]
+2025-04-10T03:10:27.1291200Z [command]/usr/bin/git sparse-checkout disable
+2025-04-10T03:10:27.1333971Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-04-10T03:10:27.1367785Z ##[group]Checking out the ref
+2025-04-10T03:10:27.1373378Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-04-10T03:10:27.2266222Z Switched to a new branch 'main'
+2025-04-10T03:10:27.2270571Z branch 'main' set up to track 'origin/main'.
+2025-04-10T03:10:27.2278600Z ##[endgroup]
+2025-04-10T03:10:27.2319360Z [command]/usr/bin/git log -1 --format=%H
+2025-04-10T03:10:27.2344771Z 94342360b152f41281c398e47fae2beb0678bcf1
+2025-04-10T03:10:27.2600324Z ##[group]Run actions/setup-python@v5
+2025-04-10T03:10:27.2600930Z with:
+2025-04-10T03:10:27.2601308Z   python-version: 3.x
+2025-04-10T03:10:27.2601740Z   check-latest: false
+2025-04-10T03:10:27.2602320Z   token: ***
+2025-04-10T03:10:27.2602899Z   update-environment: true
+2025-04-10T03:10:27.2603369Z   allow-prereleases: false
+2025-04-10T03:10:27.2603828Z   freethreaded: false
+2025-04-10T03:10:27.2604251Z ##[endgroup]
+2025-04-10T03:10:27.4663942Z ##[group]Installed versions
+2025-04-10T03:10:27.4723085Z Successfully set up CPython (3.13.2)
+2025-04-10T03:10:27.4729733Z ##[endgroup]
+2025-04-10T03:10:27.4877638Z ##[group]Run python -m pip install --upgrade pip
+2025-04-10T03:10:27.4879348Z [36;1mpython -m pip install --upgrade pip[0m
+2025-04-10T03:10:27.4880859Z [36;1mpip install pandas[0m
+2025-04-10T03:10:27.4882121Z [36;1mpip install scikit-learn[0m
+2025-04-10T03:10:27.4883932Z [36;1mpip install xgboost[0m
+2025-04-10T03:10:27.4885122Z [36;1mpip install torch[0m
+2025-04-10T03:10:27.4886306Z [36;1mpip install transformers [0m
+2025-04-10T03:10:27.4887583Z [36;1mpip install datasets[0m
+2025-04-10T03:10:27.4888774Z [36;1mpip install torch[0m
+2025-04-10T03:10:27.4889931Z [36;1mpip install tqdm[0m
+2025-04-10T03:10:27.4891143Z [36;1mpip install huggingface_hub[hf_xet][0m
+2025-04-10T03:10:27.4892651Z [36;1mpip install hf_xet[0m
+2025-04-10T03:10:27.4948701Z shell: /usr/bin/bash -e {0}
+2025-04-10T03:10:27.4949806Z env:
+2025-04-10T03:10:27.4950906Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.2/x64
+2025-04-10T03:10:27.4953194Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.2/x64/lib/pkgconfig
+2025-04-10T03:10:27.4955101Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.2/x64
+2025-04-10T03:10:27.4956776Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.2/x64
+2025-04-10T03:10:27.4958449Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.2/x64
+2025-04-10T03:10:27.4960161Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.2/x64/lib
+2025-04-10T03:10:27.4961631Z ##[endgroup]
+2025-04-10T03:10:28.1547997Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (25.0.1)
+2025-04-10T03:10:29.0351264Z Collecting pandas
+2025-04-10T03:10:29.1146493Z   Downloading pandas-2.2.3-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)
+2025-04-10T03:10:29.3990488Z Collecting numpy>=1.26.0 (from pandas)
+2025-04-10T03:10:29.4118710Z   Downloading numpy-2.2.4-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+2025-04-10T03:10:29.4480797Z Collecting python-dateutil>=2.8.2 (from pandas)
+2025-04-10T03:10:29.4587412Z   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+2025-04-10T03:10:29.5030745Z Collecting pytz>=2020.1 (from pandas)
+2025-04-10T03:10:29.5138363Z   Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+2025-04-10T03:10:29.5364664Z Collecting tzdata>=2022.7 (from pandas)
+2025-04-10T03:10:29.5467929Z   Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+2025-04-10T03:10:29.5690229Z Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas)
+2025-04-10T03:10:29.5808462Z   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2025-04-10T03:10:29.6044536Z Downloading pandas-2.2.3-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.7 MB)
+2025-04-10T03:10:30.0463894Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 30.3 MB/s eta 0:00:00
+2025-04-10T03:10:30.0575325Z Downloading numpy-2.2.4-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.1 MB)
+2025-04-10T03:10:30.2344675Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 92.0 MB/s eta 0:00:00
+2025-04-10T03:10:30.2468547Z Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2025-04-10T03:10:30.2615469Z Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+2025-04-10T03:10:30.2778000Z Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+2025-04-10T03:10:30.2933161Z Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+2025-04-10T03:10:30.3876389Z Installing collected packages: pytz, tzdata, six, numpy, python-dateutil, pandas
+2025-04-10T03:10:36.8908186Z Successfully installed numpy-2.2.4 pandas-2.2.3 python-dateutil-2.9.0.post0 pytz-2025.2 six-1.17.0 tzdata-2025.2
+2025-04-10T03:10:37.4593493Z Collecting scikit-learn
+2025-04-10T03:10:37.5134140Z   Downloading scikit_learn-1.6.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+2025-04-10T03:10:37.5310079Z Requirement already satisfied: numpy>=1.19.5 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from scikit-learn) (2.2.4)
+2025-04-10T03:10:37.6384626Z Collecting scipy>=1.6.0 (from scikit-learn)
+2025-04-10T03:10:37.6499876Z   Downloading scipy-1.15.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+2025-04-10T03:10:37.7025793Z Collecting joblib>=1.2.0 (from scikit-learn)
+2025-04-10T03:10:37.7127331Z   Downloading joblib-1.4.2-py3-none-any.whl.metadata (5.4 kB)
+2025-04-10T03:10:37.7331206Z Collecting threadpoolctl>=3.1.0 (from scikit-learn)
+2025-04-10T03:10:37.7451628Z   Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+2025-04-10T03:10:37.7738272Z Downloading scikit_learn-1.6.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.2 MB)
+2025-04-10T03:10:37.8853035Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.2/13.2 MB 131.4 MB/s eta 0:00:00
+2025-04-10T03:10:37.8953127Z Downloading joblib-1.4.2-py3-none-any.whl (301 kB)
+2025-04-10T03:10:37.9136423Z Downloading scipy-1.15.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.3 MB)
+2025-04-10T03:10:38.1821919Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.3/37.3 MB 139.5 MB/s eta 0:00:00
+2025-04-10T03:10:38.1924945Z Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+2025-04-10T03:10:38.2930735Z Installing collected packages: threadpoolctl, scipy, joblib, scikit-learn
+2025-04-10T03:10:44.4744052Z Successfully installed joblib-1.4.2 scikit-learn-1.6.1 scipy-1.15.2 threadpoolctl-3.6.0
+2025-04-10T03:10:45.0082143Z Collecting xgboost
+2025-04-10T03:10:45.0683008Z   Downloading xgboost-3.0.0-py3-none-manylinux_2_28_x86_64.whl.metadata (2.1 kB)
+2025-04-10T03:10:45.0747024Z Requirement already satisfied: numpy in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from xgboost) (2.2.4)
+2025-04-10T03:10:45.0900905Z Collecting nvidia-nccl-cu12 (from xgboost)
+2025-04-10T03:10:45.1102289Z   Downloading nvidia_nccl_cu12-2.26.2.post1-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.0 kB)
+2025-04-10T03:10:45.1148757Z Requirement already satisfied: scipy in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from xgboost) (1.15.2)
+2025-04-10T03:10:45.1475544Z Downloading xgboost-3.0.0-py3-none-manylinux_2_28_x86_64.whl (253.9 MB)
+2025-04-10T03:10:49.0942283Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 253.9/253.9 MB 64.9 MB/s eta 0:00:00
+2025-04-10T03:10:49.1055634Z Downloading nvidia_nccl_cu12-2.26.2.post1-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (291.7 MB)
+2025-04-10T03:10:52.5524508Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 291.7/291.7 MB 78.8 MB/s eta 0:00:00
+2025-04-10T03:10:52.9795379Z Installing collected packages: nvidia-nccl-cu12, xgboost
+2025-04-10T03:10:58.0092929Z Successfully installed nvidia-nccl-cu12-2.26.2.post1 xgboost-3.0.0
+2025-04-10T03:10:58.6794244Z Collecting torch
+2025-04-10T03:10:58.7420894Z   Downloading torch-2.6.0-cp313-cp313-manylinux1_x86_64.whl.metadata (28 kB)
+2025-04-10T03:10:58.7863582Z Collecting filelock (from torch)
+2025-04-10T03:10:58.7965405Z   Downloading filelock-3.18.0-py3-none-any.whl.metadata (2.9 kB)
+2025-04-10T03:10:58.8213914Z Collecting typing-extensions>=4.10.0 (from torch)
+2025-04-10T03:10:58.8309642Z   Downloading typing_extensions-4.13.1-py3-none-any.whl.metadata (3.0 kB)
+2025-04-10T03:10:58.8615806Z Collecting networkx (from torch)
+2025-04-10T03:10:58.8720633Z   Downloading networkx-3.4.2-py3-none-any.whl.metadata (6.3 kB)
+2025-04-10T03:10:58.8987227Z Collecting jinja2 (from torch)
+2025-04-10T03:10:58.9086793Z   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+2025-04-10T03:10:58.9384932Z Collecting fsspec (from torch)
+2025-04-10T03:10:58.9488115Z   Downloading fsspec-2025.3.2-py3-none-any.whl.metadata (11 kB)
+2025-04-10T03:10:58.9946963Z Collecting nvidia-cuda-nvrtc-cu12==12.4.127 (from torch)
+2025-04-10T03:10:59.0048323Z   Downloading nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+2025-04-10T03:10:59.0238828Z Collecting nvidia-cuda-runtime-cu12==12.4.127 (from torch)
+2025-04-10T03:10:59.0345352Z   Downloading nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+2025-04-10T03:10:59.0545917Z Collecting nvidia-cuda-cupti-cu12==12.4.127 (from torch)
+2025-04-10T03:10:59.0650502Z   Downloading nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+2025-04-10T03:10:59.0870346Z Collecting nvidia-cudnn-cu12==9.1.0.70 (from torch)
+2025-04-10T03:10:59.0959929Z   Downloading nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+2025-04-10T03:10:59.1150439Z Collecting nvidia-cublas-cu12==12.4.5.8 (from torch)
+2025-04-10T03:10:59.1254584Z   Downloading nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+2025-04-10T03:10:59.1440524Z Collecting nvidia-cufft-cu12==11.2.1.3 (from torch)
+2025-04-10T03:10:59.1542981Z   Downloading nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+2025-04-10T03:10:59.1725783Z Collecting nvidia-curand-cu12==10.3.5.147 (from torch)
+2025-04-10T03:10:59.1827315Z   Downloading nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+2025-04-10T03:10:59.2019236Z Collecting nvidia-cusolver-cu12==11.6.1.9 (from torch)
+2025-04-10T03:10:59.2121095Z   Downloading nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+2025-04-10T03:10:59.2307111Z Collecting nvidia-cusparse-cu12==12.3.1.170 (from torch)
+2025-04-10T03:10:59.2411728Z   Downloading nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+2025-04-10T03:10:59.2617471Z Collecting nvidia-cusparselt-cu12==0.6.2 (from torch)
+2025-04-10T03:10:59.2756253Z   Downloading nvidia_cusparselt_cu12-0.6.2-py3-none-manylinux2014_x86_64.whl.metadata (6.8 kB)
+2025-04-10T03:10:59.3045868Z Collecting nvidia-nccl-cu12==2.21.5 (from torch)
+2025-04-10T03:10:59.3156439Z   Downloading nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl.metadata (1.8 kB)
+2025-04-10T03:10:59.3364157Z Collecting nvidia-nvtx-cu12==12.4.127 (from torch)
+2025-04-10T03:10:59.3472846Z   Downloading nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.7 kB)
+2025-04-10T03:10:59.3667681Z Collecting nvidia-nvjitlink-cu12==12.4.127 (from torch)
+2025-04-10T03:10:59.3768244Z   Downloading nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+2025-04-10T03:10:59.3958726Z Collecting triton==3.2.0 (from torch)
+2025-04-10T03:10:59.4064888Z   Downloading triton-3.2.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.4 kB)
+2025-04-10T03:10:59.5269529Z Collecting setuptools (from torch)
+2025-04-10T03:10:59.5372657Z   Downloading setuptools-78.1.0-py3-none-any.whl.metadata (6.6 kB)
+2025-04-10T03:10:59.5689849Z Collecting sympy==1.13.1 (from torch)
+2025-04-10T03:10:59.5798963Z   Downloading sympy-1.13.1-py3-none-any.whl.metadata (12 kB)
+2025-04-10T03:10:59.6097585Z Collecting mpmath<1.4,>=1.1.0 (from sympy==1.13.1->torch)
+2025-04-10T03:10:59.6197053Z   Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+2025-04-10T03:10:59.6736333Z Collecting MarkupSafe>=2.0 (from jinja2->torch)
+2025-04-10T03:10:59.6871445Z   Downloading MarkupSafe-3.0.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+2025-04-10T03:10:59.7086222Z Downloading torch-2.6.0-cp313-cp313-manylinux1_x86_64.whl (766.6 MB)
+2025-04-10T03:11:12.9384173Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 766.6/766.6 MB 25.0 MB/s eta 0:00:00
+2025-04-10T03:11:12.9493468Z Downloading nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl (363.4 MB)
+2025-04-10T03:11:17.8082795Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 363.4/363.4 MB 57.7 MB/s eta 0:00:00
+2025-04-10T03:11:17.8211597Z Downloading nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (13.8 MB)
+2025-04-10T03:11:17.9003089Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.8/13.8 MB 177.8 MB/s eta 0:00:00
+2025-04-10T03:11:17.9112307Z Downloading nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (24.6 MB)
+2025-04-10T03:11:18.0374163Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 24.6/24.6 MB 198.3 MB/s eta 0:00:00
+2025-04-10T03:11:18.0479629Z Downloading nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (883 kB)
+2025-04-10T03:11:18.0567669Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 883.7/883.7 kB 109.0 MB/s eta 0:00:00
+2025-04-10T03:11:18.0675271Z Downloading nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl (664.8 MB)
+2025-04-10T03:11:29.2731935Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 664.8/664.8 MB 26.3 MB/s eta 0:00:00
+2025-04-10T03:11:29.2883210Z Downloading nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl (211.5 MB)
+2025-04-10T03:11:30.8346337Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 211.5/211.5 MB 136.8 MB/s eta 0:00:00
+2025-04-10T03:11:30.8475842Z Downloading nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl (56.3 MB)
+2025-04-10T03:11:31.1287773Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.3/56.3 MB 201.9 MB/s eta 0:00:00
+2025-04-10T03:11:31.1399075Z Downloading nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl (127.9 MB)
+2025-04-10T03:11:31.9488253Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 127.9/127.9 MB 158.6 MB/s eta 0:00:00
+2025-04-10T03:11:31.9597332Z Downloading nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl (207.5 MB)
+2025-04-10T03:11:35.2782698Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 207.5/207.5 MB 62.5 MB/s eta 0:00:00
+2025-04-10T03:11:35.2905257Z Downloading nvidia_cusparselt_cu12-0.6.2-py3-none-manylinux2014_x86_64.whl (150.1 MB)
+2025-04-10T03:11:37.2669101Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 150.1/150.1 MB 75.9 MB/s eta 0:00:00
+2025-04-10T03:11:37.2841248Z Downloading nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl (188.7 MB)
+2025-04-10T03:11:40.4272021Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 188.7/188.7 MB 60.1 MB/s eta 0:00:00
+2025-04-10T03:11:40.4375671Z Downloading nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (21.1 MB)
+2025-04-10T03:11:40.5497423Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 21.1/21.1 MB 190.7 MB/s eta 0:00:00
+2025-04-10T03:11:40.5646048Z Downloading nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (99 kB)
+2025-04-10T03:11:40.5822357Z Downloading sympy-1.13.1-py3-none-any.whl (6.2 MB)
+2025-04-10T03:11:40.6342053Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 121.2 MB/s eta 0:00:00
+2025-04-10T03:11:40.6453656Z Downloading triton-3.2.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (253.2 MB)
+2025-04-10T03:11:44.4258617Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 253.2/253.2 MB 66.9 MB/s eta 0:00:00
+2025-04-10T03:11:44.4364772Z Downloading typing_extensions-4.13.1-py3-none-any.whl (45 kB)
+2025-04-10T03:11:44.4489025Z Downloading filelock-3.18.0-py3-none-any.whl (16 kB)
+2025-04-10T03:11:44.4612230Z Downloading fsspec-2025.3.2-py3-none-any.whl (194 kB)
+2025-04-10T03:11:44.4756756Z Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+2025-04-10T03:11:44.4888354Z Downloading networkx-3.4.2-py3-none-any.whl (1.7 MB)
+2025-04-10T03:11:44.5052354Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 110.7 MB/s eta 0:00:00
+2025-04-10T03:11:44.5154544Z Downloading setuptools-78.1.0-py3-none-any.whl (1.3 MB)
+2025-04-10T03:11:44.5267843Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 122.8 MB/s eta 0:00:00
+2025-04-10T03:11:44.5380968Z Downloading MarkupSafe-3.0.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23 kB)
+2025-04-10T03:11:44.5504987Z Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+2025-04-10T03:11:44.5577982Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 65.7 MB/s eta 0:00:00
+2025-04-10T03:11:47.6839678Z Installing collected packages: triton, nvidia-cusparselt-cu12, mpmath, typing-extensions, sympy, setuptools, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, networkx, MarkupSafe, fsspec, filelock, nvidia-cusparse-cu12, nvidia-cudnn-cu12, jinja2, nvidia-cusolver-cu12, torch
+2025-04-10T03:12:01.1546979Z   Attempting uninstall: nvidia-nccl-cu12
+2025-04-10T03:12:01.1584945Z     Found existing installation: nvidia-nccl-cu12 2.26.2.post1
+2025-04-10T03:12:01.1611179Z     Uninstalling nvidia-nccl-cu12-2.26.2.post1:
+2025-04-10T03:12:01.1630243Z       Successfully uninstalled nvidia-nccl-cu12-2.26.2.post1
+2025-04-10T03:12:46.3076836Z Successfully installed MarkupSafe-3.0.2 filelock-3.18.0 fsspec-2025.3.2 jinja2-3.1.6 mpmath-1.3.0 networkx-3.4.2 nvidia-cublas-cu12-12.4.5.8 nvidia-cuda-cupti-cu12-12.4.127 nvidia-cuda-nvrtc-cu12-12.4.127 nvidia-cuda-runtime-cu12-12.4.127 nvidia-cudnn-cu12-9.1.0.70 nvidia-cufft-cu12-11.2.1.3 nvidia-curand-cu12-10.3.5.147 nvidia-cusolver-cu12-11.6.1.9 nvidia-cusparse-cu12-12.3.1.170 nvidia-cusparselt-cu12-0.6.2 nvidia-nccl-cu12-2.21.5 nvidia-nvjitlink-cu12-12.4.127 nvidia-nvtx-cu12-12.4.127 setuptools-78.1.0 sympy-1.13.1 torch-2.6.0 triton-3.2.0 typing-extensions-4.13.1
+2025-04-10T03:12:47.2111929Z Collecting transformers
+2025-04-10T03:12:47.2671915Z   Downloading transformers-4.51.1-py3-none-any.whl.metadata (38 kB)
+2025-04-10T03:12:47.3728523Z Requirement already satisfied: filelock in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from transformers) (3.18.0)
+2025-04-10T03:12:47.4141535Z Collecting huggingface-hub<1.0,>=0.30.0 (from transformers)
+2025-04-10T03:12:47.4245074Z   Downloading huggingface_hub-0.30.2-py3-none-any.whl.metadata (13 kB)
+2025-04-10T03:12:47.4425172Z Requirement already satisfied: numpy>=1.17 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from transformers) (2.2.4)
+2025-04-10T03:12:47.4629140Z Collecting packaging>=20.0 (from transformers)
+2025-04-10T03:12:47.4729759Z   Downloading packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+2025-04-10T03:12:47.5119754Z Collecting pyyaml>=5.1 (from transformers)
+2025-04-10T03:12:47.5247392Z   Downloading PyYAML-6.0.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+2025-04-10T03:12:47.8081148Z Collecting regex!=2019.12.17 (from transformers)
+2025-04-10T03:12:47.8210546Z   Downloading regex-2024.11.6-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (40 kB)
+2025-04-10T03:12:47.8553964Z Collecting requests (from transformers)
+2025-04-10T03:12:47.8653803Z   Downloading requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+2025-04-10T03:12:48.0023516Z Collecting tokenizers<0.22,>=0.21 (from transformers)
+2025-04-10T03:12:48.0160437Z   Downloading tokenizers-0.21.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+2025-04-10T03:12:48.1134313Z Collecting safetensors>=0.4.3 (from transformers)
+2025-04-10T03:12:48.1251797Z   Downloading safetensors-0.5.3-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
+2025-04-10T03:12:48.1709504Z Collecting tqdm>=4.27 (from transformers)
+2025-04-10T03:12:48.1809901Z   Downloading tqdm-4.67.1-py3-none-any.whl.metadata (57 kB)
+2025-04-10T03:12:48.1947440Z Requirement already satisfied: fsspec>=2023.5.0 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from huggingface-hub<1.0,>=0.30.0->transformers) (2025.3.2)
+2025-04-10T03:12:48.2102238Z Requirement already satisfied: typing-extensions>=3.7.4.3 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from huggingface-hub<1.0,>=0.30.0->transformers) (4.13.1)
+2025-04-10T03:12:48.2845365Z Collecting charset-normalizer<4,>=2 (from requests->transformers)
+2025-04-10T03:12:48.2950177Z   Downloading charset_normalizer-3.4.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+2025-04-10T03:12:48.3200214Z Collecting idna<4,>=2.5 (from requests->transformers)
+2025-04-10T03:12:48.3307480Z   Downloading idna-3.10-py3-none-any.whl.metadata (10 kB)
+2025-04-10T03:12:48.3629453Z Collecting urllib3<3,>=1.21.1 (from requests->transformers)
+2025-04-10T03:12:48.3736837Z   Downloading urllib3-2.3.0-py3-none-any.whl.metadata (6.5 kB)
+2025-04-10T03:12:48.4009085Z Collecting certifi>=2017.4.17 (from requests->transformers)
+2025-04-10T03:12:48.4113400Z   Downloading certifi-2025.1.31-py3-none-any.whl.metadata (2.5 kB)
+2025-04-10T03:12:48.4384041Z Downloading transformers-4.51.1-py3-none-any.whl (10.4 MB)
+2025-04-10T03:12:48.8175405Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.4/10.4 MB 28.8 MB/s eta 0:00:00
+2025-04-10T03:12:48.8278490Z Downloading huggingface_hub-0.30.2-py3-none-any.whl (481 kB)
+2025-04-10T03:12:48.8481417Z Downloading packaging-24.2-py3-none-any.whl (65 kB)
+2025-04-10T03:12:48.8608136Z Downloading PyYAML-6.0.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (759 kB)
+2025-04-10T03:12:48.8761174Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 759.5/759.5 kB 45.6 MB/s eta 0:00:00
+2025-04-10T03:12:48.8888948Z Downloading regex-2024.11.6-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (796 kB)
+2025-04-10T03:12:48.9044464Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 796.9/796.9 kB 45.2 MB/s eta 0:00:00
+2025-04-10T03:12:48.9177642Z Downloading safetensors-0.5.3-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (471 kB)
+2025-04-10T03:12:48.9354274Z Downloading tokenizers-0.21.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+2025-04-10T03:12:48.9797545Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 68.5 MB/s eta 0:00:00
+2025-04-10T03:12:48.9899918Z Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+2025-04-10T03:12:49.0032064Z Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+2025-04-10T03:12:49.0157914Z Downloading certifi-2025.1.31-py3-none-any.whl (166 kB)
+2025-04-10T03:12:49.0291096Z Downloading charset_normalizer-3.4.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (144 kB)
+2025-04-10T03:12:49.0429983Z Downloading idna-3.10-py3-none-any.whl (70 kB)
+2025-04-10T03:12:49.0554549Z Downloading urllib3-2.3.0-py3-none-any.whl (128 kB)
+2025-04-10T03:12:49.1970671Z Installing collected packages: urllib3, tqdm, safetensors, regex, pyyaml, packaging, idna, charset-normalizer, certifi, requests, huggingface-hub, tokenizers, transformers
+2025-04-10T03:12:55.9701433Z Successfully installed certifi-2025.1.31 charset-normalizer-3.4.1 huggingface-hub-0.30.2 idna-3.10 packaging-24.2 pyyaml-6.0.2 regex-2024.11.6 requests-2.32.3 safetensors-0.5.3 tokenizers-0.21.1 tqdm-4.67.1 transformers-4.51.1 urllib3-2.3.0
+2025-04-10T03:12:56.5435383Z Collecting datasets
+2025-04-10T03:12:56.5989841Z   Downloading datasets-3.5.0-py3-none-any.whl.metadata (19 kB)
+2025-04-10T03:12:56.6359003Z Requirement already satisfied: filelock in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from datasets) (3.18.0)
+2025-04-10T03:12:56.6365839Z Requirement already satisfied: numpy>=1.17 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from datasets) (2.2.4)
+2025-04-10T03:12:56.7109827Z Collecting pyarrow>=15.0.0 (from datasets)
+2025-04-10T03:12:56.7223464Z   Downloading pyarrow-19.0.1-cp313-cp313-manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+2025-04-10T03:12:56.7460448Z Collecting dill<0.3.9,>=0.3.0 (from datasets)
+2025-04-10T03:12:56.7568955Z   Downloading dill-0.3.8-py3-none-any.whl.metadata (10 kB)
+2025-04-10T03:12:56.7619766Z Requirement already satisfied: pandas in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from datasets) (2.2.3)
+2025-04-10T03:12:56.7626277Z Requirement already satisfied: requests>=2.32.2 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from datasets) (2.32.3)
+2025-04-10T03:12:56.7631672Z Requirement already satisfied: tqdm>=4.66.3 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from datasets) (4.67.1)
+2025-04-10T03:12:56.8244251Z Collecting xxhash (from datasets)
+2025-04-10T03:12:56.8367193Z   Downloading xxhash-3.5.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
+2025-04-10T03:12:56.8651798Z Collecting multiprocess<0.70.17 (from datasets)
+2025-04-10T03:12:56.8754303Z   Downloading multiprocess-0.70.16-py312-none-any.whl.metadata (7.2 kB)
+2025-04-10T03:12:56.9065037Z Collecting fsspec<=2024.12.0,>=2023.1.0 (from fsspec[http]<=2024.12.0,>=2023.1.0->datasets)
+2025-04-10T03:12:56.9174178Z   Downloading fsspec-2024.12.0-py3-none-any.whl.metadata (11 kB)
+2025-04-10T03:12:57.2383153Z Collecting aiohttp (from datasets)
+2025-04-10T03:12:57.2554337Z   Downloading aiohttp-3.11.16-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.7 kB)
+2025-04-10T03:12:57.2627743Z Requirement already satisfied: huggingface-hub>=0.24.0 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from datasets) (0.30.2)
+2025-04-10T03:12:57.2632299Z Requirement already satisfied: packaging in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from datasets) (24.2)
+2025-04-10T03:12:57.2637338Z Requirement already satisfied: pyyaml>=5.1 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from datasets) (6.0.2)
+2025-04-10T03:12:57.3055513Z Collecting aiohappyeyeballs>=2.3.0 (from aiohttp->datasets)
+2025-04-10T03:12:57.3169250Z   Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl.metadata (5.9 kB)
+2025-04-10T03:12:57.3362630Z Collecting aiosignal>=1.1.2 (from aiohttp->datasets)
+2025-04-10T03:12:57.3468237Z   Downloading aiosignal-1.3.2-py2.py3-none-any.whl.metadata (3.8 kB)
+2025-04-10T03:12:57.3700304Z Collecting attrs>=17.3.0 (from aiohttp->datasets)
+2025-04-10T03:12:57.3799434Z   Downloading attrs-25.3.0-py3-none-any.whl.metadata (10 kB)
+2025-04-10T03:12:57.4326574Z Collecting frozenlist>=1.1.1 (from aiohttp->datasets)
+2025-04-10T03:12:57.4429255Z   Downloading frozenlist-1.5.0-cp313-cp313-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (13 kB)
+2025-04-10T03:12:57.5884805Z Collecting multidict<7.0,>=4.5 (from aiohttp->datasets)
+2025-04-10T03:12:57.5992319Z   Downloading multidict-6.4.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.1 kB)
+2025-04-10T03:12:57.6402663Z Collecting propcache>=0.2.0 (from aiohttp->datasets)
+2025-04-10T03:12:57.6559045Z   Downloading propcache-0.3.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
+2025-04-10T03:12:57.8395483Z Collecting yarl<2.0,>=1.17.0 (from aiohttp->datasets)
+2025-04-10T03:12:57.8512889Z   Downloading yarl-1.19.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (71 kB)
+2025-04-10T03:12:57.8789300Z Requirement already satisfied: typing-extensions>=3.7.4.3 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from huggingface-hub>=0.24.0->datasets) (4.13.1)
+2025-04-10T03:12:57.8884233Z Requirement already satisfied: charset-normalizer<4,>=2 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from requests>=2.32.2->datasets) (3.4.1)
+2025-04-10T03:12:57.8890763Z Requirement already satisfied: idna<4,>=2.5 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from requests>=2.32.2->datasets) (3.10)
+2025-04-10T03:12:57.8896617Z Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from requests>=2.32.2->datasets) (2.3.0)
+2025-04-10T03:12:57.8901275Z Requirement already satisfied: certifi>=2017.4.17 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from requests>=2.32.2->datasets) (2025.1.31)
+2025-04-10T03:12:57.9093029Z Requirement already satisfied: python-dateutil>=2.8.2 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from pandas->datasets) (2.9.0.post0)
+2025-04-10T03:12:57.9098269Z Requirement already satisfied: pytz>=2020.1 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from pandas->datasets) (2025.2)
+2025-04-10T03:12:57.9103360Z Requirement already satisfied: tzdata>=2022.7 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from pandas->datasets) (2025.2)
+2025-04-10T03:12:57.9218293Z Requirement already satisfied: six>=1.5 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from python-dateutil>=2.8.2->pandas->datasets) (1.17.0)
+2025-04-10T03:12:57.9448706Z Downloading datasets-3.5.0-py3-none-any.whl (491 kB)
+2025-04-10T03:12:57.9768110Z Downloading dill-0.3.8-py3-none-any.whl (116 kB)
+2025-04-10T03:12:57.9904616Z Downloading fsspec-2024.12.0-py3-none-any.whl (183 kB)
+2025-04-10T03:12:58.0050073Z Downloading aiohttp-3.11.16-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.7 MB)
+2025-04-10T03:12:58.0251384Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 88.0 MB/s eta 0:00:00
+2025-04-10T03:12:58.0374953Z Downloading multiprocess-0.70.16-py312-none-any.whl (146 kB)
+2025-04-10T03:12:58.0526864Z Downloading pyarrow-19.0.1-cp313-cp313-manylinux_2_28_x86_64.whl (42.1 MB)
+2025-04-10T03:12:58.3583633Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.1/42.1 MB 139.6 MB/s eta 0:00:00
+2025-04-10T03:12:58.3728433Z Downloading xxhash-3.5.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (194 kB)
+2025-04-10T03:12:58.4308788Z Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
+2025-04-10T03:12:58.5925553Z Downloading aiosignal-1.3.2-py2.py3-none-any.whl (7.6 kB)
+2025-04-10T03:12:58.6862934Z Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
+2025-04-10T03:12:58.8790389Z Downloading frozenlist-1.5.0-cp313-cp313-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (267 kB)
+2025-04-10T03:12:59.1365667Z Downloading multidict-6.4.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (222 kB)
+2025-04-10T03:12:59.2949324Z Downloading propcache-0.3.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (228 kB)
+2025-04-10T03:12:59.6343753Z Downloading yarl-1.19.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (347 kB)
+2025-04-10T03:13:01.4013266Z Installing collected packages: xxhash, pyarrow, propcache, multidict, fsspec, frozenlist, dill, attrs, aiohappyeyeballs, yarl, multiprocess, aiosignal, aiohttp, datasets
+2025-04-10T03:13:02.5476009Z   Attempting uninstall: fsspec
+2025-04-10T03:13:02.5527684Z     Found existing installation: fsspec 2025.3.2
+2025-04-10T03:13:02.5583835Z     Uninstalling fsspec-2025.3.2:
+2025-04-10T03:13:02.5596439Z       Successfully uninstalled fsspec-2025.3.2
+2025-04-10T03:13:03.4558225Z Successfully installed aiohappyeyeballs-2.6.1 aiohttp-3.11.16 aiosignal-1.3.2 attrs-25.3.0 datasets-3.5.0 dill-0.3.8 frozenlist-1.5.0 fsspec-2024.12.0 multidict-6.4.2 multiprocess-0.70.16 propcache-0.3.1 pyarrow-19.0.1 xxhash-3.5.0 yarl-1.19.0
+2025-04-10T03:13:03.9528681Z Requirement already satisfied: torch in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (2.6.0)
+2025-04-10T03:13:03.9614830Z Requirement already satisfied: filelock in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (3.18.0)
+2025-04-10T03:13:03.9620029Z Requirement already satisfied: typing-extensions>=4.10.0 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (4.13.1)
+2025-04-10T03:13:03.9625873Z Requirement already satisfied: networkx in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (3.4.2)
+2025-04-10T03:13:03.9629710Z Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (3.1.6)
+2025-04-10T03:13:03.9635294Z Requirement already satisfied: fsspec in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (2024.12.0)
+2025-04-10T03:13:03.9643427Z Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (12.4.127)
+2025-04-10T03:13:03.9650787Z Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (12.4.127)
+2025-04-10T03:13:03.9657545Z Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (12.4.127)
+2025-04-10T03:13:03.9665376Z Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (9.1.0.70)
+2025-04-10T03:13:03.9671441Z Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (12.4.5.8)
+2025-04-10T03:13:03.9679736Z Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (11.2.1.3)
+2025-04-10T03:13:03.9687186Z Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (10.3.5.147)
+2025-04-10T03:13:03.9693438Z Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (11.6.1.9)
+2025-04-10T03:13:03.9701151Z Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (12.3.1.170)
+2025-04-10T03:13:03.9708161Z Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (0.6.2)
+2025-04-10T03:13:03.9716803Z Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (2.21.5)
+2025-04-10T03:13:03.9726549Z Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (12.4.127)
+2025-04-10T03:13:03.9733965Z Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (12.4.127)
+2025-04-10T03:13:03.9740727Z Requirement already satisfied: triton==3.2.0 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (3.2.0)
+2025-04-10T03:13:03.9745586Z Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (78.1.0)
+2025-04-10T03:13:03.9752649Z Requirement already satisfied: sympy==1.13.1 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from torch) (1.13.1)
+2025-04-10T03:13:03.9857678Z Requirement already satisfied: mpmath<1.4,>=1.1.0 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from sympy==1.13.1->torch) (1.3.0)
+2025-04-10T03:13:04.0008121Z Requirement already satisfied: MarkupSafe>=2.0 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from jinja2->torch) (3.0.2)
+2025-04-10T03:13:04.6090931Z Requirement already satisfied: tqdm in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (4.67.1)
+2025-04-10T03:13:05.2185723Z Requirement already satisfied: huggingface_hub[hf_xet] in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (0.30.2)
+2025-04-10T03:13:05.2300977Z Requirement already satisfied: filelock in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from huggingface_hub[hf_xet]) (3.18.0)
+2025-04-10T03:13:05.2306902Z Requirement already satisfied: fsspec>=2023.5.0 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from huggingface_hub[hf_xet]) (2024.12.0)
+2025-04-10T03:13:05.2311369Z Requirement already satisfied: packaging>=20.9 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from huggingface_hub[hf_xet]) (24.2)
+2025-04-10T03:13:05.2317863Z Requirement already satisfied: pyyaml>=5.1 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from huggingface_hub[hf_xet]) (6.0.2)
+2025-04-10T03:13:05.2322906Z Requirement already satisfied: requests in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from huggingface_hub[hf_xet]) (2.32.3)
+2025-04-10T03:13:05.2327643Z Requirement already satisfied: tqdm>=4.42.1 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from huggingface_hub[hf_xet]) (4.67.1)
+2025-04-10T03:13:05.2333669Z Requirement already satisfied: typing-extensions>=3.7.4.3 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from huggingface_hub[hf_xet]) (4.13.1)
+2025-04-10T03:13:05.3035977Z Collecting hf-xet>=0.1.4 (from huggingface_hub[hf_xet])
+2025-04-10T03:13:05.3863514Z   Downloading hf_xet-1.0.3-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (494 bytes)
+2025-04-10T03:13:05.4095404Z Requirement already satisfied: charset-normalizer<4,>=2 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from requests->huggingface_hub[hf_xet]) (3.4.1)
+2025-04-10T03:13:05.4099813Z Requirement already satisfied: idna<4,>=2.5 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from requests->huggingface_hub[hf_xet]) (3.10)
+2025-04-10T03:13:05.4106265Z Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from requests->huggingface_hub[hf_xet]) (2.3.0)
+2025-04-10T03:13:05.4111988Z Requirement already satisfied: certifi>=2017.4.17 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from requests->huggingface_hub[hf_xet]) (2025.1.31)
+2025-04-10T03:13:05.4294392Z Downloading hf_xet-1.0.3-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (53.8 MB)
+2025-04-10T03:13:06.1585415Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.8/53.8 MB 77.1 MB/s eta 0:00:00
+2025-04-10T03:13:06.3433244Z Installing collected packages: hf-xet
+2025-04-10T03:13:07.1106283Z Successfully installed hf-xet-1.0.3
+2025-04-10T03:13:07.5760851Z Requirement already satisfied: hf_xet in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (1.0.3)
+2025-04-10T03:13:07.8214849Z ##[group]Run # python 0001-LogisticRegression.py
+2025-04-10T03:13:07.8215229Z [36;1m# python 0001-LogisticRegression.py[0m
+2025-04-10T03:13:07.8215494Z [36;1m# python 0002-NaiveBayes.py[0m
+2025-04-10T03:13:07.8215731Z [36;1m# python 0003-SVM.py[0m
+2025-04-10T03:13:07.8215948Z [36;1m# python 0004-DecisionTree.py[0m
+2025-04-10T03:13:07.8216190Z [36;1m# python 0005-RandomForest.py[0m
+2025-04-10T03:13:07.8216420Z [36;1m# python 0006-XGBoost.py[0m
+2025-04-10T03:13:07.8216644Z [36;1mpython 0007-CNN.py[0m
+2025-04-10T03:13:07.8216847Z [36;1mpython 0008-LSTM.py[0m
+2025-04-10T03:13:07.8217052Z [36;1mpython 0009-GRU.py[0m
+2025-04-10T03:13:07.8217249Z [36;1m# python 0010-BERT.py[0m
+2025-04-10T03:13:07.8217459Z [36;1m# python 0011-BERT.py[0m
+2025-04-10T03:13:07.8217669Z [36;1m# python 0011-XLNet.py[0m
+2025-04-10T03:13:07.8217884Z [36;1m# python 0012-DistilBERT.py[0m
+2025-04-10T03:13:07.8218318Z [36;1m# python 0013-RoBERTa.py[0m
+2025-04-10T03:13:07.8218573Z [36;1m# python 0014-ALBERT.py[0m
+2025-04-10T03:13:07.8291676Z shell: /usr/bin/bash -e {0}
+2025-04-10T03:13:07.8291903Z env:
+2025-04-10T03:13:07.8292153Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.2/x64
+2025-04-10T03:13:07.8292801Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.2/x64/lib/pkgconfig
+2025-04-10T03:13:07.8293192Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.2/x64
+2025-04-10T03:13:07.8293537Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.2/x64
+2025-04-10T03:13:07.8293873Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.2/x64
+2025-04-10T03:13:07.8294226Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.2/x64/lib
+2025-04-10T03:13:07.8294517Z ##[endgroup]
+2025-04-10T03:14:24.8514345Z /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in samples with no predicted labels. Use `zero_division` parameter to control this behavior.
+2025-04-10T03:14:24.8517040Z   _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+2025-04-10T03:14:58.1395008Z /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in samples with no predicted labels. Use `zero_division` parameter to control this behavior.
+2025-04-10T03:14:58.1398282Z   _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+2025-04-10T03:14:58.1429926Z [95m[1m========== CNN ==========[0m
+2025-04-10T03:14:58.1431800Z [93m===== Processing dataset: cyberbullying_df =====[0m
+2025-04-10T03:14:58.1432283Z Epoch 1 Loss: 136.9541
+2025-04-10T03:14:58.1432810Z Epoch 2 Loss: 66.8175
+2025-04-10T03:14:58.1433082Z Epoch 3 Loss: 45.0537
+2025-04-10T03:14:58.1433336Z Epoch 4 Loss: 28.5406
+2025-04-10T03:14:58.1433592Z Epoch 5 Loss: 16.9992
+2025-04-10T03:14:58.1434043Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T03:14:58.1434570Z                    precision    recall  f1-score   support
+2025-04-10T03:14:58.1434873Z 
+2025-04-10T03:14:58.1435015Z               age       0.99      0.97      0.98      1599
+2025-04-10T03:14:58.1435438Z              race       0.98      0.99      0.98      1616
+2025-04-10T03:14:58.1435836Z            gender       0.91      0.87      0.89      1541
+2025-04-10T03:14:58.1436286Z not_cyberbullying       0.82      0.87      0.84      1634
+2025-04-10T03:14:58.1436767Z          religion       0.97      0.91      0.94      1584
+2025-04-10T03:14:58.1437052Z 
+2025-04-10T03:14:58.1437205Z         micro avg       0.93      0.92      0.93      7974
+2025-04-10T03:14:58.1437632Z         macro avg       0.93      0.92      0.93      7974
+2025-04-10T03:14:58.1438069Z      weighted avg       0.93      0.92      0.93      7974
+2025-04-10T03:14:58.1438555Z       samples avg       0.91      0.92      0.92      7974
+2025-04-10T03:14:58.1438881Z 
+2025-04-10T03:14:58.1439081Z [94m
+2025-04-10T03:14:58.1439460Z === Accuracy Per Label ===[0m
+2025-04-10T03:14:58.1440375Z age: [92m0.9931025833960371[0m
+2025-04-10T03:14:58.1440810Z race: [92m0.9934788061198896[0m
+2025-04-10T03:14:58.1441185Z gender: [92m0.9578630549285176[0m
+2025-04-10T03:14:58.1441616Z not_cyberbullying: [92m0.9324053172811638[0m
+2025-04-10T03:14:58.1442103Z religion: [92m0.9770504138449962[0m
+2025-04-10T03:14:58.1442352Z 
+2025-04-10T03:14:58.1442930Z === Subset Accuracy (exact match of all labels): [92m0.9048156508653122[0m
+2025-04-10T03:14:58.1443538Z [91mHamming Loss: 0.0292[0m
+2025-04-10T03:14:58.1444013Z [93m===== Processing dataset: hatespeech_df =====[0m
+2025-04-10T03:14:58.1444436Z Epoch 1 Loss: 225.2287
+2025-04-10T03:14:58.1444735Z Epoch 2 Loss: 179.5242
+2025-04-10T03:14:58.1445022Z Epoch 3 Loss: 152.8444
+2025-04-10T03:14:58.1445320Z Epoch 4 Loss: 128.1771
+2025-04-10T03:14:58.1445599Z Epoch 5 Loss: 104.7055
+2025-04-10T03:14:58.1446020Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T03:14:58.1446776Z               precision    recall  f1-score   support
+2025-04-10T03:14:58.1447072Z 
+2025-04-10T03:14:58.1447232Z   hatespeech       0.76      0.59      0.66      1325
+2025-04-10T03:14:58.1447661Z    offensive       0.82      0.90      0.86      2697
+2025-04-10T03:14:58.1448071Z         race       0.76      0.62      0.68      1346
+2025-04-10T03:14:58.1448473Z     religion       0.76      0.77      0.77       948
+2025-04-10T03:14:58.1448879Z       gender       0.56      0.27      0.37       762
+2025-04-10T03:14:58.1449282Z       sexual       0.78      0.69      0.73       495
+2025-04-10T03:14:58.1449669Z         misc       0.50      0.29      0.37       722
+2025-04-10T03:14:58.1449935Z 
+2025-04-10T03:14:58.1450076Z    micro avg       0.76      0.67      0.71      8295
+2025-04-10T03:14:58.1450476Z    macro avg       0.71      0.59      0.63      8295
+2025-04-10T03:14:58.1450899Z weighted avg       0.74      0.67      0.69      8295
+2025-04-10T03:14:58.1451336Z  samples avg       0.79      0.73      0.73      8295
+2025-04-10T03:14:58.1451626Z 
+2025-04-10T03:14:58.1451776Z [94m
+2025-04-10T03:14:58.1452095Z === Accuracy Per Label ===[0m
+2025-04-10T03:14:58.1452769Z hatespeech: [92m0.8030830432620587[0m
+2025-04-10T03:14:58.1453232Z offensive: [92m0.7998508204873197[0m
+2025-04-10T03:14:58.1453664Z race: [92m0.8060666335156639[0m
+2025-04-10T03:14:58.1454086Z religion: [92m0.8893585280954749[0m
+2025-04-10T03:14:58.1454505Z gender: [92m0.8222277473893586[0m
+2025-04-10T03:14:58.1454919Z sexual: [92m0.9383391347588265[0m
+2025-04-10T03:14:58.1455324Z misc: [92m0.8204873197414222[0m
+2025-04-10T03:14:58.1455571Z 
+2025-04-10T03:14:58.1455987Z === Subset Accuracy (exact match of all labels): [92m0.38960716061660866[0m
+2025-04-10T03:14:58.1456602Z [91mHamming Loss: 0.1601[0m
+2025-04-10T03:18:20.6758107Z /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in samples with no predicted labels. Use `zero_division` parameter to control this behavior.
+2025-04-10T03:18:20.6760848Z   _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+2025-04-10T03:19:47.6023725Z /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in samples with no predicted labels. Use `zero_division` parameter to control this behavior.
+2025-04-10T03:19:47.6026524Z   _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+2025-04-10T03:19:47.6059720Z [95m[1m========== LSTM ==========[0m
+2025-04-10T03:19:47.6062100Z [93m===== Processing dataset: cyberbullying_df =====[0m
+2025-04-10T03:19:47.6062785Z Epoch 1 Loss: 180.8249
+2025-04-10T03:19:47.6063100Z Epoch 2 Loss: 78.7398
+2025-04-10T03:19:47.6063418Z Epoch 3 Loss: 55.9607
+2025-04-10T03:19:47.6063712Z Epoch 4 Loss: 40.8538
+2025-04-10T03:19:47.6064004Z Epoch 5 Loss: 28.4815
+2025-04-10T03:19:47.6064488Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T03:19:47.6065430Z                    precision    recall  f1-score   support
+2025-04-10T03:19:47.6065762Z 
+2025-04-10T03:19:47.6065919Z               age       0.97      0.97      0.97      1595
+2025-04-10T03:19:47.6066360Z              race       0.97      0.98      0.98      1590
+2025-04-10T03:19:47.6066830Z            gender       0.89      0.88      0.88      1560
+2025-04-10T03:19:47.6067329Z not_cyberbullying       0.85      0.80      0.83      1635
+2025-04-10T03:19:47.6067850Z          religion       0.95      0.95      0.95      1593
+2025-04-10T03:19:47.6068152Z 
+2025-04-10T03:19:47.6068289Z         micro avg       0.93      0.92      0.92      7973
+2025-04-10T03:19:47.6068671Z         macro avg       0.93      0.92      0.92      7973
+2025-04-10T03:19:47.6069063Z      weighted avg       0.93      0.92      0.92      7973
+2025-04-10T03:19:47.6069516Z       samples avg       0.91      0.92      0.91      7973
+2025-04-10T03:19:47.6070102Z 
+2025-04-10T03:19:47.6070273Z [94m
+2025-04-10T03:19:47.6070605Z === Accuracy Per Label ===[0m
+2025-04-10T03:19:47.6071008Z age: [92m0.987583092938668[0m
+2025-04-10T03:19:47.6071388Z race: [92m0.9900915590116643[0m
+2025-04-10T03:19:47.6071796Z gender: [92m0.9552238805970149[0m
+2025-04-10T03:19:47.6072250Z not_cyberbullying: [92m0.9300137965634014[0m
+2025-04-10T03:19:47.6083204Z religion: [92m0.980057694719679[0m
+2025-04-10T03:19:47.6083497Z 
+2025-04-10T03:19:47.6084069Z === Subset Accuracy (exact match of all labels): [92m0.907563025210084[0m
+2025-04-10T03:19:47.6084640Z [91mHamming Loss: 0.0314[0m
+2025-04-10T03:19:47.6085085Z [93m===== Processing dataset: hatespeech_df =====[0m
+2025-04-10T03:19:47.6085512Z Epoch 1 Loss: 248.9846
+2025-04-10T03:19:47.6085793Z Epoch 2 Loss: 196.3079
+2025-04-10T03:19:47.6086077Z Epoch 3 Loss: 167.5895
+2025-04-10T03:19:47.6086339Z Epoch 4 Loss: 144.9394
+2025-04-10T03:19:47.6086598Z Epoch 5 Loss: 122.6402
+2025-04-10T03:19:47.6086987Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T03:19:47.6087431Z               precision    recall  f1-score   support
+2025-04-10T03:19:47.6087697Z 
+2025-04-10T03:19:47.6087850Z   hatespeech       0.69      0.67      0.68      1325
+2025-04-10T03:19:47.6088287Z    offensive       0.84      0.85      0.85      2697
+2025-04-10T03:19:47.6088678Z         race       0.69      0.68      0.68      1346
+2025-04-10T03:19:47.6089056Z     religion       0.77      0.74      0.76       948
+2025-04-10T03:19:47.6089425Z       gender       0.55      0.32      0.41       762
+2025-04-10T03:19:47.6089793Z       sexual       0.82      0.64      0.72       495
+2025-04-10T03:19:47.6090176Z         misc       0.48      0.24      0.32       722
+2025-04-10T03:19:47.6090416Z 
+2025-04-10T03:19:47.6090546Z    micro avg       0.74      0.67      0.70      8295
+2025-04-10T03:19:47.6090936Z    macro avg       0.69      0.59      0.63      8295
+2025-04-10T03:19:47.6091318Z weighted avg       0.72      0.67      0.69      8295
+2025-04-10T03:19:47.6091732Z  samples avg       0.77      0.72      0.72      8295
+2025-04-10T03:19:47.6092005Z 
+2025-04-10T03:19:47.6092132Z [94m
+2025-04-10T03:19:47.6092575Z === Accuracy Per Label ===[0m
+2025-04-10T03:19:47.6093136Z hatespeech: [92m0.7918945798110393[0m
+2025-04-10T03:19:47.6093553Z offensive: [92m0.7916459472899056[0m
+2025-04-10T03:19:47.6093945Z race: [92m0.7901541521631029[0m
+2025-04-10T03:19:47.6094339Z religion: [92m0.8873694679264048[0m
+2025-04-10T03:19:47.6094735Z gender: [92m0.8222277473893586[0m
+2025-04-10T03:19:47.6095103Z sexual: [92m0.9385877672799602[0m
+2025-04-10T03:19:47.6095463Z misc: [92m0.8162605668821482[0m
+2025-04-10T03:19:47.6095660Z 
+2025-04-10T03:19:47.6096021Z === Subset Accuracy (exact match of all labels): [92m0.38214818498259573[0m
+2025-04-10T03:19:47.6096544Z [91mHamming Loss: 0.1660[0m
+2025-04-10T03:23:00.0175080Z /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in samples with no predicted labels. Use `zero_division` parameter to control this behavior.
+2025-04-10T03:23:00.0177908Z   _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+2025-04-10T03:24:23.9548346Z /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in samples with no predicted labels. Use `zero_division` parameter to control this behavior.
+2025-04-10T03:24:23.9554202Z   _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+2025-04-10T03:24:23.9584615Z [95m[1m========== GRU ==========[0m
+2025-04-10T03:24:23.9585501Z [93m===== Processing dataset: cyberbullying_df =====[0m
+2025-04-10T03:24:23.9590281Z Epoch 1 Loss: 167.7999
+2025-04-10T03:24:23.9590620Z Epoch 2 Loss: 68.3479
+2025-04-10T03:24:23.9590929Z Epoch 3 Loss: 49.0862
+2025-04-10T03:24:23.9591215Z Epoch 4 Loss: 34.9772
+2025-04-10T03:24:23.9591996Z Epoch 5 Loss: 23.4696
+2025-04-10T03:24:23.9592752Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T03:24:23.9593286Z                    precision    recall  f1-score   support
+2025-04-10T03:24:23.9593613Z 
+2025-04-10T03:24:23.9593764Z               age       0.98      0.97      0.98      1595
+2025-04-10T03:24:23.9594197Z              race       0.98      0.98      0.98      1590
+2025-04-10T03:24:23.9594643Z            gender       0.93      0.86      0.90      1560
+2025-04-10T03:24:23.9595065Z not_cyberbullying       0.83      0.86      0.85      1635
+2025-04-10T03:24:23.9595489Z          religion       0.94      0.96      0.95      1593
+2025-04-10T03:24:23.9595765Z 
+2025-04-10T03:24:23.9595900Z         micro avg       0.93      0.93      0.93      7973
+2025-04-10T03:24:23.9596329Z         macro avg       0.93      0.93      0.93      7973
+2025-04-10T03:24:23.9596770Z      weighted avg       0.93      0.93      0.93      7973
+2025-04-10T03:24:23.9597218Z       samples avg       0.92      0.93      0.92      7973
+2025-04-10T03:24:23.9597537Z 
+2025-04-10T03:24:23.9597707Z [94m
+2025-04-10T03:24:23.9598044Z === Accuracy Per Label ===[0m
+2025-04-10T03:24:23.9598450Z age: [92m0.9902169823153142[0m
+2025-04-10T03:24:23.9598844Z race: [92m0.99310171829926[0m
+2025-04-10T03:24:23.9599226Z gender: [92m0.9608679292612567[0m
+2025-04-10T03:24:23.9599689Z not_cyberbullying: [92m0.9354069986203437[0m
+2025-04-10T03:24:23.9600198Z religion: [92m0.9788034616831808[0m
+2025-04-10T03:24:23.9600449Z 
+2025-04-10T03:24:23.9600816Z === Subset Accuracy (exact match of all labels): [92m0.9145867302144739[0m
+2025-04-10T03:24:23.9601393Z [91mHamming Loss: 0.0283[0m
+2025-04-10T03:24:23.9601857Z [93m===== Processing dataset: hatespeech_df =====[0m
+2025-04-10T03:24:23.9602300Z Epoch 1 Loss: 242.3270
+2025-04-10T03:24:23.9602824Z Epoch 2 Loss: 184.4132
+2025-04-10T03:24:23.9603121Z Epoch 3 Loss: 156.8425
+2025-04-10T03:24:23.9603404Z Epoch 4 Loss: 133.7529
+2025-04-10T03:24:23.9603690Z Epoch 5 Loss: 111.4287
+2025-04-10T03:24:23.9604126Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T03:24:23.9604585Z               precision    recall  f1-score   support
+2025-04-10T03:24:23.9604872Z 
+2025-04-10T03:24:23.9605029Z   hatespeech       0.70      0.68      0.69      1325
+2025-04-10T03:24:23.9605453Z    offensive       0.84      0.86      0.85      2697
+2025-04-10T03:24:23.9605854Z         race       0.75      0.64      0.70      1346
+2025-04-10T03:24:23.9606243Z     religion       0.76      0.76      0.76       948
+2025-04-10T03:24:23.9606650Z       gender       0.57      0.31      0.40       762
+2025-04-10T03:24:23.9607037Z       sexual       0.79      0.60      0.68       495
+2025-04-10T03:24:23.9607419Z         misc       0.50      0.23      0.32       722
+2025-04-10T03:24:23.9607686Z 
+2025-04-10T03:24:23.9607837Z    micro avg       0.76      0.66      0.71      8295
+2025-04-10T03:24:23.9608236Z    macro avg       0.70      0.58      0.63      8295
+2025-04-10T03:24:23.9608651Z weighted avg       0.74      0.66      0.69      8295
+2025-04-10T03:24:23.9609406Z  samples avg       0.79      0.72      0.73      8295
+2025-04-10T03:24:23.9609775Z 
+2025-04-10T03:24:23.9609980Z [94m
+2025-04-10T03:24:23.9610330Z === Accuracy Per Label ===[0m
+2025-04-10T03:24:23.9610768Z hatespeech: [92m0.8000994530084535[0m
+2025-04-10T03:24:23.9611255Z offensive: [92m0.8003480855295872[0m
+2025-04-10T03:24:23.9633720Z race: [92m0.8107906514172054[0m
+2025-04-10T03:24:23.9634227Z religion: [92m0.8866235703630034[0m
+2025-04-10T03:24:23.9634636Z gender: [92m0.8249627051218299[0m
+2025-04-10T03:24:23.9635006Z sexual: [92m0.9308801591248135[0m
+2025-04-10T03:24:23.9635374Z misc: [92m0.8209845847836897[0m
+2025-04-10T03:24:23.9635584Z 
+2025-04-10T03:24:23.9635935Z === Subset Accuracy (exact match of all labels): [92m0.39905519641969167[0m
+2025-04-10T03:24:23.9636476Z [91mHamming Loss: 0.1608[0m
+2025-04-10T03:24:24.5775983Z Post job cleanup.
+2025-04-10T03:24:24.7476048Z Post job cleanup.
+2025-04-10T03:24:24.8505342Z [command]/usr/bin/git version
+2025-04-10T03:24:24.8549090Z git version 2.49.0
+2025-04-10T03:24:24.8602183Z Temporarily overriding HOME='/home/runner/work/_temp/98309e17-1cc9-4748-8fe2-5354f12b9a48' before making global git config changes
+2025-04-10T03:24:24.8603422Z Adding repository directory to the temporary git global config as a safe directory
+2025-04-10T03:24:24.8605982Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/BERT/BERT
+2025-04-10T03:24:24.8651227Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-04-10T03:24:24.8688854Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-04-10T03:24:24.9101827Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-04-10T03:24:24.9216359Z http.https://github.com/.extraheader
+2025-04-10T03:24:25.0952270Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-04-10T03:24:25.0955051Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-04-10T03:24:25.1015612Z Cleaning up orphan processes

@@ -1,0 +1,570 @@
+2025-04-10T02:53:12.0649747Z Current runner version: '2.323.0'
+2025-04-10T02:53:12.0734690Z ##[group]Operating System
+2025-04-10T02:53:12.0758878Z Ubuntu
+2025-04-10T02:53:12.0759899Z 24.04.2
+2025-04-10T02:53:12.0760635Z LTS
+2025-04-10T02:53:12.0761395Z ##[endgroup]
+2025-04-10T02:53:12.0762113Z ##[group]Runner Image
+2025-04-10T02:53:12.0763111Z Image: ubuntu-24.04
+2025-04-10T02:53:12.0763999Z Version: 20250406.1.0
+2025-04-10T02:53:12.0765705Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250406.1/images/ubuntu/Ubuntu2404-Readme.md
+2025-04-10T02:53:12.0768453Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250406.1
+2025-04-10T02:53:12.0769960Z ##[endgroup]
+2025-04-10T02:53:12.0770871Z ##[group]Runner Image Provisioner
+2025-04-10T02:53:12.0771726Z 2.0.422.1
+2025-04-10T02:53:12.0772453Z ##[endgroup]
+2025-04-10T02:53:12.0774267Z ##[group]GITHUB_TOKEN Permissions
+2025-04-10T02:53:12.0799697Z Contents: read
+2025-04-10T02:53:12.0800471Z Metadata: read
+2025-04-10T02:53:12.0801633Z Packages: read
+2025-04-10T02:53:12.0802547Z ##[endgroup]
+2025-04-10T02:53:12.0805985Z Secret source: Actions
+2025-04-10T02:53:12.0827561Z Prepare workflow directory
+2025-04-10T02:53:12.1654779Z Prepare all required actions
+2025-04-10T02:53:12.1711711Z Getting action download info
+2025-04-10T02:53:12.5943032Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-04-10T02:53:12.5943970Z Version: 4.2.2
+2025-04-10T02:53:12.5944994Z Digest: sha256:ccb2698953eaebd21c7bf6268a94f9c26518a7e38e27e0b83c1fe1ad049819b1
+2025-04-10T02:53:12.5946383Z Source commit SHA: 11bd71901bbe5b1630ceea73d27597364c9af683
+2025-04-10T02:53:12.5947138Z ##[endgroup]
+2025-04-10T02:53:12.6793969Z ##[group]Download immutable action package 'actions/setup-python@v5'
+2025-04-10T02:53:12.6794853Z Version: 5.5.0
+2025-04-10T02:53:12.6795538Z Digest: sha256:1fac95d751afd58314aebd2ab01d4bf3b3109a441917bd2cac2a22898ec494f7
+2025-04-10T02:53:12.6796801Z Source commit SHA: 8d9ed9ac5c53483de85588cdf95a591a75ab9f55
+2025-04-10T02:53:12.6797574Z ##[endgroup]
+2025-04-10T02:53:12.9457554Z Complete job name: build
+2025-04-10T02:53:13.0132402Z ##[group]Run actions/checkout@v4
+2025-04-10T02:53:13.0133187Z with:
+2025-04-10T02:53:13.0133572Z   repository: aranya-jana/BERT
+2025-04-10T02:53:13.0134176Z   token: ***
+2025-04-10T02:53:13.0134539Z   ssh-strict: true
+2025-04-10T02:53:13.0134919Z   ssh-user: git
+2025-04-10T02:53:13.0135294Z   persist-credentials: true
+2025-04-10T02:53:13.0135725Z   clean: true
+2025-04-10T02:53:13.0136343Z   sparse-checkout-cone-mode: true
+2025-04-10T02:53:13.0136809Z   fetch-depth: 1
+2025-04-10T02:53:13.0137183Z   fetch-tags: false
+2025-04-10T02:53:13.0137567Z   show-progress: true
+2025-04-10T02:53:13.0137949Z   lfs: false
+2025-04-10T02:53:13.0138301Z   submodules: false
+2025-04-10T02:53:13.0138694Z   set-safe-directory: true
+2025-04-10T02:53:13.0139358Z ##[endgroup]
+2025-04-10T02:53:13.2162306Z Syncing repository: aranya-jana/BERT
+2025-04-10T02:53:13.2164952Z ##[group]Getting Git version info
+2025-04-10T02:53:13.2166353Z Working directory is '/home/runner/work/BERT/BERT'
+2025-04-10T02:53:13.2168001Z [command]/usr/bin/git version
+2025-04-10T02:53:13.2234868Z git version 2.49.0
+2025-04-10T02:53:13.2268533Z ##[endgroup]
+2025-04-10T02:53:13.2285092Z Temporarily overriding HOME='/home/runner/work/_temp/7247e5e3-bc07-454d-8593-556e6dcaf41b' before making global git config changes
+2025-04-10T02:53:13.2289122Z Adding repository directory to the temporary git global config as a safe directory
+2025-04-10T02:53:13.2304255Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/BERT/BERT
+2025-04-10T02:53:13.2345607Z Deleting the contents of '/home/runner/work/BERT/BERT'
+2025-04-10T02:53:13.2350867Z ##[group]Initializing the repository
+2025-04-10T02:53:13.2356414Z [command]/usr/bin/git init /home/runner/work/BERT/BERT
+2025-04-10T02:53:13.2416848Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-04-10T02:53:13.2419543Z hint: is subject to change. To configure the initial branch name to use in all
+2025-04-10T02:53:13.2422657Z hint: of your new repositories, which will suppress this warning, call:
+2025-04-10T02:53:13.2424653Z hint:
+2025-04-10T02:53:13.2425573Z hint: 	git config --global init.defaultBranch <name>
+2025-04-10T02:53:13.2426806Z hint:
+2025-04-10T02:53:13.2427826Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-04-10T02:53:13.2429434Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-04-10T02:53:13.2430678Z hint:
+2025-04-10T02:53:13.2431277Z hint: 	git branch -m <name>
+2025-04-10T02:53:13.2433311Z Initialized empty Git repository in /home/runner/work/BERT/BERT/.git/
+2025-04-10T02:53:13.2438074Z [command]/usr/bin/git remote add origin https://github.com/aranya-jana/BERT
+2025-04-10T02:53:13.2478050Z ##[endgroup]
+2025-04-10T02:53:13.2482025Z ##[group]Disabling automatic garbage collection
+2025-04-10T02:53:13.2484328Z [command]/usr/bin/git config --local gc.auto 0
+2025-04-10T02:53:13.2516158Z ##[endgroup]
+2025-04-10T02:53:13.2518756Z ##[group]Setting up auth
+2025-04-10T02:53:13.2523545Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-04-10T02:53:13.2557823Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-04-10T02:53:13.2857555Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-04-10T02:53:13.2893049Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-04-10T02:53:13.3151408Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-04-10T02:53:13.3199852Z ##[endgroup]
+2025-04-10T02:53:13.3203061Z ##[group]Fetching the repository
+2025-04-10T02:53:13.3211578Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +1d28827004b316ecf984d49c2048b0c3546e4ff7:refs/remotes/origin/main-2
+2025-04-10T02:53:14.0081405Z From https://github.com/aranya-jana/BERT
+2025-04-10T02:53:14.0082947Z  * [new ref]         1d28827004b316ecf984d49c2048b0c3546e4ff7 -> origin/main-2
+2025-04-10T02:53:14.0109143Z ##[endgroup]
+2025-04-10T02:53:14.0112162Z ##[group]Determining the checkout info
+2025-04-10T02:53:14.0113615Z ##[endgroup]
+2025-04-10T02:53:14.0116801Z [command]/usr/bin/git sparse-checkout disable
+2025-04-10T02:53:14.0161152Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-04-10T02:53:14.0194610Z ##[group]Checking out the ref
+2025-04-10T02:53:14.0198499Z [command]/usr/bin/git checkout --progress --force -B main-2 refs/remotes/origin/main-2
+2025-04-10T02:53:14.1087765Z Switched to a new branch 'main-2'
+2025-04-10T02:53:14.1092221Z branch 'main-2' set up to track 'origin/main-2'.
+2025-04-10T02:53:14.1101148Z ##[endgroup]
+2025-04-10T02:53:14.1144058Z [command]/usr/bin/git log -1 --format=%H
+2025-04-10T02:53:14.1169971Z 1d28827004b316ecf984d49c2048b0c3546e4ff7
+2025-04-10T02:53:14.1423464Z ##[group]Run actions/setup-python@v5
+2025-04-10T02:53:14.1424062Z with:
+2025-04-10T02:53:14.1424436Z   python-version: 3.x
+2025-04-10T02:53:14.1424885Z   check-latest: false
+2025-04-10T02:53:14.1425477Z   token: ***
+2025-04-10T02:53:14.1426059Z   update-environment: true
+2025-04-10T02:53:14.1426540Z   allow-prereleases: false
+2025-04-10T02:53:14.1426994Z   freethreaded: false
+2025-04-10T02:53:14.1427418Z ##[endgroup]
+2025-04-10T02:53:14.3520984Z ##[group]Installed versions
+2025-04-10T02:53:14.3543579Z Successfully set up CPython (3.13.2)
+2025-04-10T02:53:14.3548946Z ##[endgroup]
+2025-04-10T02:53:14.3702916Z ##[group]Run python -m pip install --upgrade pip
+2025-04-10T02:53:14.3704625Z [36;1mpython -m pip install --upgrade pip[0m
+2025-04-10T02:53:14.3706413Z [36;1mpip install pandas[0m
+2025-04-10T02:53:14.3707691Z [36;1mpip install scikit-learn[0m
+2025-04-10T02:53:14.3709243Z [36;1mpip install xgboost[0m
+2025-04-10T02:53:14.3710439Z [36;1m# pip install torch[0m
+2025-04-10T02:53:14.3711829Z [36;1m# pip install transformers [0m
+2025-04-10T02:53:14.3713273Z [36;1m# pip install datasets[0m
+2025-04-10T02:53:14.3714509Z [36;1m# pip install torch[0m
+2025-04-10T02:53:14.3715659Z [36;1m# pip install tqdm[0m
+2025-04-10T02:53:14.3717009Z [36;1m# pip install huggingface_hub[hf_xet][0m
+2025-04-10T02:53:14.3718336Z [36;1m# pip install hf_xet[0m
+2025-04-10T02:53:14.3773103Z shell: /usr/bin/bash -e {0}
+2025-04-10T02:53:14.3774171Z env:
+2025-04-10T02:53:14.3775249Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.2/x64
+2025-04-10T02:53:14.3777507Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.2/x64/lib/pkgconfig
+2025-04-10T02:53:14.3779337Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.2/x64
+2025-04-10T02:53:14.3780939Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.2/x64
+2025-04-10T02:53:14.3782600Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.2/x64
+2025-04-10T02:53:14.3784272Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.2/x64/lib
+2025-04-10T02:53:14.3785678Z ##[endgroup]
+2025-04-10T02:53:18.8346370Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (25.0.1)
+2025-04-10T02:53:19.5497427Z Collecting pandas
+2025-04-10T02:53:19.5927895Z   Downloading pandas-2.2.3-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)
+2025-04-10T02:53:19.7680852Z Collecting numpy>=1.26.0 (from pandas)
+2025-04-10T02:53:19.7726500Z   Downloading numpy-2.2.4-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+2025-04-10T02:53:19.8025283Z Collecting python-dateutil>=2.8.2 (from pandas)
+2025-04-10T02:53:19.8061803Z   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+2025-04-10T02:53:19.8430177Z Collecting pytz>=2020.1 (from pandas)
+2025-04-10T02:53:19.8463668Z   Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+2025-04-10T02:53:19.8626294Z Collecting tzdata>=2022.7 (from pandas)
+2025-04-10T02:53:19.8657077Z   Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+2025-04-10T02:53:19.8796116Z Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas)
+2025-04-10T02:53:19.8832039Z   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2025-04-10T02:53:19.8920164Z Downloading pandas-2.2.3-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.7 MB)
+2025-04-10T02:53:20.0057401Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 128.2 MB/s eta 0:00:00
+2025-04-10T02:53:20.0103416Z Downloading numpy-2.2.4-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.1 MB)
+2025-04-10T02:53:20.1304328Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 135.6 MB/s eta 0:00:00
+2025-04-10T02:53:20.1340241Z Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2025-04-10T02:53:20.1410634Z Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+2025-04-10T02:53:20.1500374Z Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+2025-04-10T02:53:20.1572900Z Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+2025-04-10T02:53:20.2611062Z Installing collected packages: pytz, tzdata, six, numpy, python-dateutil, pandas
+2025-04-10T02:53:27.0684164Z Successfully installed numpy-2.2.4 pandas-2.2.3 python-dateutil-2.9.0.post0 pytz-2025.2 six-1.17.0 tzdata-2025.2
+2025-04-10T02:53:27.6066882Z Collecting scikit-learn
+2025-04-10T02:53:27.6455471Z   Downloading scikit_learn-1.6.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+2025-04-10T02:53:27.6609601Z Requirement already satisfied: numpy>=1.19.5 in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from scikit-learn) (2.2.4)
+2025-04-10T02:53:27.7398759Z Collecting scipy>=1.6.0 (from scikit-learn)
+2025-04-10T02:53:27.7442278Z   Downloading scipy-1.15.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+2025-04-10T02:53:27.7885399Z Collecting joblib>=1.2.0 (from scikit-learn)
+2025-04-10T02:53:27.7925267Z   Downloading joblib-1.4.2-py3-none-any.whl.metadata (5.4 kB)
+2025-04-10T02:53:27.8095214Z Collecting threadpoolctl>=3.1.0 (from scikit-learn)
+2025-04-10T02:53:27.8146917Z   Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+2025-04-10T02:53:27.8320281Z Downloading scikit_learn-1.6.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.2 MB)
+2025-04-10T02:53:27.9161266Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.2/13.2 MB 165.0 MB/s eta 0:00:00
+2025-04-10T02:53:27.9196652Z Downloading joblib-1.4.2-py3-none-any.whl (301 kB)
+2025-04-10T02:53:27.9349712Z Downloading scipy-1.15.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.3 MB)
+2025-04-10T02:53:28.2132597Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.3/37.3 MB 134.2 MB/s eta 0:00:00
+2025-04-10T02:53:28.2171373Z Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+2025-04-10T02:53:28.3175565Z Installing collected packages: threadpoolctl, scipy, joblib, scikit-learn
+2025-04-10T02:53:34.5237570Z Successfully installed joblib-1.4.2 scikit-learn-1.6.1 scipy-1.15.2 threadpoolctl-3.6.0
+2025-04-10T02:53:35.0112931Z Collecting xgboost
+2025-04-10T02:53:35.0444981Z   Downloading xgboost-3.0.0-py3-none-manylinux_2_28_x86_64.whl.metadata (2.1 kB)
+2025-04-10T02:53:35.0503044Z Requirement already satisfied: numpy in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from xgboost) (2.2.4)
+2025-04-10T02:53:35.0598969Z Collecting nvidia-nccl-cu12 (from xgboost)
+2025-04-10T02:53:35.0654146Z   Downloading nvidia_nccl_cu12-2.26.2.post1-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.0 kB)
+2025-04-10T02:53:35.0691887Z Requirement already satisfied: scipy in /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages (from xgboost) (1.15.2)
+2025-04-10T02:53:35.0840918Z Downloading xgboost-3.0.0-py3-none-manylinux_2_28_x86_64.whl (253.9 MB)
+2025-04-10T02:53:38.1227198Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 253.9/253.9 MB 83.9 MB/s eta 0:00:00
+2025-04-10T02:53:38.1274871Z Downloading nvidia_nccl_cu12-2.26.2.post1-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (291.7 MB)
+2025-04-10T02:53:41.9782920Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 291.7/291.7 MB 69.9 MB/s eta 0:00:00
+2025-04-10T02:53:42.4041574Z Installing collected packages: nvidia-nccl-cu12, xgboost
+2025-04-10T02:53:47.4019724Z Successfully installed nvidia-nccl-cu12-2.26.2.post1 xgboost-3.0.0
+2025-04-10T02:53:47.5796397Z ##[group]Run python 0001-LogisticRegression.py
+2025-04-10T02:53:47.5797000Z [36;1mpython 0001-LogisticRegression.py[0m
+2025-04-10T02:53:47.5797432Z [36;1mpython 0002-NaiveBayes.py[0m
+2025-04-10T02:53:47.5797808Z [36;1mpython 0003-SVM.py[0m
+2025-04-10T02:53:47.5798266Z [36;1mpython 0004-DecisionTree.py[0m
+2025-04-10T02:53:47.5798720Z [36;1mpython 0005-RandomForest.py[0m
+2025-04-10T02:53:47.5799179Z [36;1mpython 0006-XGBoost.py[0m
+2025-04-10T02:53:47.5799579Z [36;1m# python 0007-CNN.py[0m
+2025-04-10T02:53:47.5800005Z [36;1m# python 0008-LSTM.py[0m
+2025-04-10T02:53:47.5800353Z [36;1m# python 0009-GRU.py[0m
+2025-04-10T02:53:47.5800683Z [36;1m# python 0010-BERT.py[0m
+2025-04-10T02:53:47.5801041Z [36;1m# python 0011-BERT.py[0m
+2025-04-10T02:53:47.5801399Z [36;1m# python 0011-XLNet.py[0m
+2025-04-10T02:53:47.5801793Z [36;1m# python 0012-DistilBERT.py[0m
+2025-04-10T02:53:47.5802209Z [36;1m# python 0013-RoBERTa.py[0m
+2025-04-10T02:53:47.5802711Z [36;1m# python 0014-ALBERT.py[0m
+2025-04-10T02:53:47.5856337Z shell: /usr/bin/bash -e {0}
+2025-04-10T02:53:47.5856563Z env:
+2025-04-10T02:53:47.5856805Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.2/x64
+2025-04-10T02:53:47.5857202Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.2/x64/lib/pkgconfig
+2025-04-10T02:53:47.5857577Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.2/x64
+2025-04-10T02:53:47.5857911Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.2/x64
+2025-04-10T02:53:47.5858255Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.2/x64
+2025-04-10T02:53:47.5858579Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.2/x64/lib
+2025-04-10T02:53:47.5859067Z ##[endgroup]
+2025-04-10T02:53:51.3810499Z /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in samples with no predicted labels. Use `zero_division` parameter to control this behavior.
+2025-04-10T02:53:51.3836722Z   _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+2025-04-10T02:53:52.0311099Z [95m[1m========== LOGISTIC REGRESSION ==========[0m
+2025-04-10T02:53:52.0321300Z [93m===== Processing dataset: cyberbullying_df =====[0m
+2025-04-10T02:53:52.0322149Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T02:53:52.0322625Z                    precision    recall  f1-score   support
+2025-04-10T02:53:52.0322906Z 
+2025-04-10T02:53:52.0323031Z               age       0.96      0.96      0.96      1599
+2025-04-10T02:53:52.0323403Z              race       0.98      0.95      0.97      1616
+2025-04-10T02:53:52.0361328Z            gender       0.96      0.82      0.88      1541
+2025-04-10T02:53:52.0361802Z not_cyberbullying       0.84      0.81      0.82      1634
+2025-04-10T02:53:52.0362251Z          religion       0.96      0.92      0.94      1584
+2025-04-10T02:53:52.0362510Z 
+2025-04-10T02:53:52.0362654Z         micro avg       0.94      0.89      0.92      7974
+2025-04-10T02:53:52.0363065Z         macro avg       0.94      0.89      0.92      7974
+2025-04-10T02:53:52.0363473Z      weighted avg       0.94      0.89      0.92      7974
+2025-04-10T02:53:52.0363887Z       samples avg       0.89      0.89      0.89      7974
+2025-04-10T02:53:52.0364152Z 
+2025-04-10T02:53:52.0364314Z [94m
+2025-04-10T02:53:52.0364607Z === Accuracy Per Label ===[0m
+2025-04-10T02:53:52.0364975Z age: [92m0.9838224228743416[0m
+2025-04-10T02:53:52.0365333Z race: [92m0.9875846501128668[0m
+2025-04-10T02:53:52.0365700Z gender: [92m0.9582392776523702[0m
+2025-04-10T02:53:52.0366305Z not_cyberbullying: [92m0.9290193127664911[0m
+2025-04-10T02:53:52.0366755Z religion: [92m0.9773012289942312[0m
+2025-04-10T02:53:52.0366983Z 
+2025-04-10T02:53:52.0367330Z === Subset Accuracy (exact match of all labels): [92m0.8861299222473037[0m
+2025-04-10T02:53:52.0367880Z [91mHamming Loss: 0.0328[0m
+2025-04-10T02:53:52.0368324Z [93m===== Processing dataset: hatespeech_df =====[0m
+2025-04-10T02:53:52.0369235Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T02:53:52.0369691Z               precision    recall  f1-score   support
+2025-04-10T02:53:52.0369954Z 
+2025-04-10T02:53:52.0370105Z   hatespeech       0.81      0.55      0.66      1325
+2025-04-10T02:53:52.0370508Z    offensive       0.81      0.94      0.87      2697
+2025-04-10T02:53:52.0370872Z         race       0.83      0.55      0.66      1346
+2025-04-10T02:53:52.0371241Z     religion       0.84      0.66      0.74       948
+2025-04-10T02:53:52.0371630Z       gender       0.70      0.24      0.35       762
+2025-04-10T02:53:52.0372003Z       sexual       0.80      0.53      0.64       495
+2025-04-10T02:53:52.0372383Z         misc       0.59      0.19      0.28       722
+2025-04-10T02:53:52.0372632Z 
+2025-04-10T02:53:52.0372764Z    micro avg       0.80      0.63      0.70      8295
+2025-04-10T02:53:52.0373147Z    macro avg       0.77      0.52      0.60      8295
+2025-04-10T02:53:52.0373548Z weighted avg       0.79      0.63      0.67      8295
+2025-04-10T02:53:52.0373991Z  samples avg       0.82      0.71      0.73      8295
+2025-04-10T02:53:52.0374277Z 
+2025-04-10T02:53:52.0374421Z [94m
+2025-04-10T02:53:52.0374722Z === Accuracy Per Label ===[0m
+2025-04-10T02:53:52.0375132Z hatespeech: [92m0.8105420188960716[0m
+2025-04-10T02:53:52.0375561Z offensive: [92m0.8105420188960716[0m
+2025-04-10T02:53:52.0404381Z race: [92m0.8107906514172054[0m
+2025-04-10T02:53:52.0404787Z religion: [92m0.8915962207856788[0m
+2025-04-10T02:53:52.0405185Z gender: [92m0.836399801093983[0m
+2025-04-10T02:53:52.0405561Z sexual: [92m0.9259075087021382[0m
+2025-04-10T02:53:52.0406387Z misc: [92m0.8304326205867727[0m
+2025-04-10T02:53:52.0406600Z 
+2025-04-10T02:53:52.0406948Z === Subset Accuracy (exact match of all labels): [92m0.420934858279463[0m
+2025-04-10T02:53:52.0407476Z [91mHamming Loss: 0.1548[0m
+2025-04-10T02:53:53.7934294Z /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in samples with no predicted labels. Use `zero_division` parameter to control this behavior.
+2025-04-10T02:53:53.7938334Z   _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+2025-04-10T02:53:54.1357568Z [95m[1m========== NAIVE BAYES ==========[0m
+2025-04-10T02:53:54.1358207Z [93m===== Processing dataset: cyberbullying_df =====[0m
+2025-04-10T02:53:54.1358741Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T02:53:54.1359198Z                    precision    recall  f1-score   support
+2025-04-10T02:53:54.1359516Z 
+2025-04-10T02:53:54.1359673Z               age       0.95      0.91      0.93      1599
+2025-04-10T02:53:54.1360042Z              race       0.98      0.84      0.90      1616
+2025-04-10T02:53:54.1360419Z            gender       0.96      0.74      0.84      1541
+2025-04-10T02:53:54.1360880Z not_cyberbullying       0.83      0.33      0.47      1634
+2025-04-10T02:53:54.1361304Z          religion       0.93      0.90      0.92      1584
+2025-04-10T02:53:54.1361582Z 
+2025-04-10T02:53:54.1361715Z         micro avg       0.94      0.74      0.83      7974
+2025-04-10T02:53:54.1362083Z         macro avg       0.93      0.74      0.81      7974
+2025-04-10T02:53:54.1362486Z      weighted avg       0.93      0.74      0.81      7974
+2025-04-10T02:53:54.1362903Z       samples avg       0.74      0.74      0.74      7974
+2025-04-10T02:53:54.1363171Z 
+2025-04-10T02:53:54.1363294Z [94m
+2025-04-10T02:53:54.1363593Z === Accuracy Per Label ===[0m
+2025-04-10T02:53:54.1364024Z age: [92m0.972535741158766[0m
+2025-04-10T02:53:54.1364401Z race: [92m0.9630047654878354[0m
+2025-04-10T02:53:54.1364760Z gender: [92m0.9438174065713569[0m
+2025-04-10T02:53:54.1365182Z not_cyberbullying: [92m0.8488838725859041[0m
+2025-04-10T02:53:54.1365612Z religion: [92m0.9668924003009782[0m
+2025-04-10T02:53:54.1366048Z 
+2025-04-10T02:53:54.1366415Z === Subset Accuracy (exact match of all labels): [92m0.7383997993478806[0m
+2025-04-10T02:53:54.1367411Z [91mHamming Loss: 0.0610[0m
+2025-04-10T02:53:54.1367871Z [93m===== Processing dataset: hatespeech_df =====[0m
+2025-04-10T02:53:54.1368387Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T02:53:54.1368811Z               precision    recall  f1-score   support
+2025-04-10T02:53:54.1369083Z 
+2025-04-10T02:53:54.1369223Z   hatespeech       0.82      0.40      0.54      1325
+2025-04-10T02:53:54.1369614Z    offensive       0.76      0.96      0.85      2697
+2025-04-10T02:53:54.1369994Z         race       0.86      0.41      0.56      1346
+2025-04-10T02:53:54.1370366Z     religion       0.84      0.44      0.58       948
+2025-04-10T02:53:54.1370740Z       gender       0.72      0.07      0.14       762
+2025-04-10T02:53:54.1371112Z       sexual       0.78      0.18      0.29       495
+2025-04-10T02:53:54.1371463Z         misc       0.69      0.10      0.17       722
+2025-04-10T02:53:54.1371707Z 
+2025-04-10T02:53:54.1371830Z    micro avg       0.79      0.52      0.63      8295
+2025-04-10T02:53:54.1372204Z    macro avg       0.78      0.37      0.45      8295
+2025-04-10T02:53:54.1372620Z weighted avg       0.79      0.52      0.56      8295
+2025-04-10T02:53:54.1373035Z  samples avg       0.79      0.62      0.66      8295
+2025-04-10T02:53:54.1373299Z 
+2025-04-10T02:53:54.1373427Z [94m
+2025-04-10T02:53:54.1373711Z === Accuracy Per Label ===[0m
+2025-04-10T02:53:54.1374087Z hatespeech: [92m0.7734957732471407[0m
+2025-04-10T02:53:54.1374525Z offensive: [92m0.7734957732471407[0m
+2025-04-10T02:53:54.1374925Z race: [92m0.7821979114868225[0m
+2025-04-10T02:53:54.1375296Z religion: [92m0.84808552958727[0m
+2025-04-10T02:53:54.1382723Z gender: [92m0.8192441571357534[0m
+2025-04-10T02:53:54.1383197Z sexual: [92m0.8925907508702138[0m
+2025-04-10T02:53:54.1383576Z misc: [92m0.830183988065639[0m
+2025-04-10T02:53:54.1383778Z 
+2025-04-10T02:53:54.1384125Z === Subset Accuracy (exact match of all labels): [92m0.3684733963202387[0m
+2025-04-10T02:53:54.1384660Z [91mHamming Loss: 0.1830[0m
+2025-04-10T02:53:56.0501468Z /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in samples with no predicted labels. Use `zero_division` parameter to control this behavior.
+2025-04-10T02:53:56.0504541Z   _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+2025-04-10T02:53:56.5903493Z [95m[1m========== SVM ==========[0m
+2025-04-10T02:53:56.5904079Z [93m===== Processing dataset: cyberbullying_df =====[0m
+2025-04-10T02:53:56.5904641Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T02:53:56.5905139Z                    precision    recall  f1-score   support
+2025-04-10T02:53:56.5905414Z 
+2025-04-10T02:53:56.5905548Z               age       0.97      0.96      0.96      1599
+2025-04-10T02:53:56.5906153Z              race       0.98      0.98      0.98      1616
+2025-04-10T02:53:56.5906537Z            gender       0.94      0.83      0.88      1541
+2025-04-10T02:53:56.5906962Z not_cyberbullying       0.83      0.83      0.83      1634
+2025-04-10T02:53:56.5907398Z          religion       0.96      0.93      0.95      1584
+2025-04-10T02:53:56.5907672Z 
+2025-04-10T02:53:56.5907803Z         micro avg       0.94      0.91      0.92      7974
+2025-04-10T02:53:56.5908189Z         macro avg       0.94      0.91      0.92      7974
+2025-04-10T02:53:56.5908592Z      weighted avg       0.94      0.91      0.92      7974
+2025-04-10T02:53:56.5909020Z       samples avg       0.90      0.91      0.91      7974
+2025-04-10T02:53:56.5909290Z 
+2025-04-10T02:53:56.5909421Z [94m
+2025-04-10T02:53:56.5909715Z === Accuracy Per Label ===[0m
+2025-04-10T02:53:56.5910095Z age: [92m0.9859543516428392[0m
+2025-04-10T02:53:56.5910457Z race: [92m0.9926009530975671[0m
+2025-04-10T02:53:56.5910828Z gender: [92m0.9568597943315776[0m
+2025-04-10T02:53:56.5911255Z not_cyberbullying: [92m0.9310258339603712[0m
+2025-04-10T02:53:56.5911691Z religion: [92m0.9796839729119639[0m
+2025-04-10T02:53:56.5911912Z 
+2025-04-10T02:53:56.5912695Z === Subset Accuracy (exact match of all labels): [92m0.9001755706044645[0m
+2025-04-10T02:53:56.5913274Z [91mHamming Loss: 0.0308[0m
+2025-04-10T02:53:56.5913735Z [93m===== Processing dataset: hatespeech_df =====[0m
+2025-04-10T02:53:56.5914236Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T02:53:56.5914661Z               precision    recall  f1-score   support
+2025-04-10T02:53:56.5914919Z 
+2025-04-10T02:53:56.5915058Z   hatespeech       0.77      0.59      0.67      1325
+2025-04-10T02:53:56.5915455Z    offensive       0.82      0.91      0.86      2697
+2025-04-10T02:53:56.5915983Z         race       0.80      0.57      0.67      1346
+2025-04-10T02:53:56.5916379Z     religion       0.84      0.73      0.78       948
+2025-04-10T02:53:56.5916767Z       gender       0.66      0.27      0.39       762
+2025-04-10T02:53:56.5917145Z       sexual       0.81      0.63      0.71       495
+2025-04-10T02:53:56.5917519Z         misc       0.56      0.22      0.32       722
+2025-04-10T02:53:56.5917774Z 
+2025-04-10T02:53:56.5917904Z    micro avg       0.79      0.65      0.71      8295
+2025-04-10T02:53:56.5918286Z    macro avg       0.75      0.56      0.63      8295
+2025-04-10T02:53:56.5918697Z weighted avg       0.77      0.65      0.69      8295
+2025-04-10T02:53:56.5919120Z  samples avg       0.81      0.72      0.73      8295
+2025-04-10T02:53:56.5919391Z 
+2025-04-10T02:53:56.5919524Z [94m
+2025-04-10T02:53:56.5919800Z === Accuracy Per Label ===[0m
+2025-04-10T02:53:56.5920190Z hatespeech: [92m0.8063152660367976[0m
+2025-04-10T02:53:56.5920593Z offensive: [92m0.8063152660367976[0m
+2025-04-10T02:53:56.5921220Z race: [92m0.8097961213326703[0m
+2025-04-10T02:53:56.5921588Z religion: [92m0.9025360517155644[0m
+2025-04-10T02:53:56.5921976Z gender: [92m0.8361511685728493[0m
+2025-04-10T02:53:56.5922349Z sexual: [92m0.9368473396320238[0m
+2025-04-10T02:53:56.5922707Z misc: [92m0.8294380905022377[0m
+2025-04-10T02:53:56.5922905Z 
+2025-04-10T02:53:56.5923257Z === Subset Accuracy (exact match of all labels): [92m0.4226752859273993[0m
+2025-04-10T02:53:56.5923783Z [91mHamming Loss: 0.1532[0m
+2025-04-10T02:54:10.0159553Z /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in samples with no predicted labels. Use `zero_division` parameter to control this behavior.
+2025-04-10T02:54:10.0162899Z   _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+2025-04-10T02:54:27.1659789Z /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in samples with no predicted labels. Use `zero_division` parameter to control this behavior.
+2025-04-10T02:54:27.1662839Z   _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+2025-04-10T02:54:27.1706233Z [95m[1m========== DECISION TREE ==========[0m
+2025-04-10T02:54:27.1707768Z [93m===== Processing dataset: cyberbullying_df =====[0m
+2025-04-10T02:54:27.1708336Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T02:54:27.1708779Z                    precision    recall  f1-score   support
+2025-04-10T02:54:27.1709059Z 
+2025-04-10T02:54:27.1709204Z               age       0.98      0.97      0.98      1599
+2025-04-10T02:54:27.1709608Z              race       0.98      0.97      0.98      1616
+2025-04-10T02:54:27.1710052Z            gender       0.86      0.85      0.86      1541
+2025-04-10T02:54:27.1710488Z not_cyberbullying       0.81      0.79      0.80      1634
+2025-04-10T02:54:27.1710939Z          religion       0.93      0.93      0.93      1584
+2025-04-10T02:54:27.1711213Z 
+2025-04-10T02:54:27.1711345Z         micro avg       0.91      0.90      0.91      7974
+2025-04-10T02:54:27.1711743Z         macro avg       0.91      0.90      0.91      7974
+2025-04-10T02:54:27.1712156Z      weighted avg       0.91      0.90      0.91      7974
+2025-04-10T02:54:27.1712978Z       samples avg       0.89      0.90      0.90      7974
+2025-04-10T02:54:27.1713272Z 
+2025-04-10T02:54:27.1713400Z [94m
+2025-04-10T02:54:27.1713717Z === Accuracy Per Label ===[0m
+2025-04-10T02:54:27.1714100Z age: [92m0.9909706546275395[0m
+2025-04-10T02:54:27.1714457Z race: [92m0.9918485076498621[0m
+2025-04-10T02:54:27.1714870Z gender: [92m0.9444444444444444[0m
+2025-04-10T02:54:27.1715298Z not_cyberbullying: [92m0.9188612992224731[0m
+2025-04-10T02:54:27.1715731Z religion: [92m0.9721595184349134[0m
+2025-04-10T02:54:27.1716143Z 
+2025-04-10T02:54:27.1716507Z === Subset Accuracy (exact match of all labels): [92m0.8818660647103085[0m
+2025-04-10T02:54:27.1717120Z [91mHamming Loss: 0.0363[0m
+2025-04-10T02:54:27.1717544Z [93m===== Processing dataset: hatespeech_df =====[0m
+2025-04-10T02:54:27.1718057Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T02:54:27.1718482Z               precision    recall  f1-score   support
+2025-04-10T02:54:27.1718744Z 
+2025-04-10T02:54:27.1718888Z   hatespeech       0.67      0.59      0.63      1325
+2025-04-10T02:54:27.1719295Z    offensive       0.81      0.85      0.83      2697
+2025-04-10T02:54:27.1719667Z         race       0.69      0.62      0.66      1346
+2025-04-10T02:54:27.1720048Z     religion       0.77      0.75      0.76       948
+2025-04-10T02:54:27.1720428Z       gender       0.43      0.37      0.40       762
+2025-04-10T02:54:27.1720808Z       sexual       0.76      0.74      0.75       495
+2025-04-10T02:54:27.1721188Z         misc       0.40      0.34      0.36       722
+2025-04-10T02:54:27.1721436Z 
+2025-04-10T02:54:27.1721572Z    micro avg       0.70      0.67      0.68      8295
+2025-04-10T02:54:27.1722196Z    macro avg       0.65      0.61      0.63      8295
+2025-04-10T02:54:27.1722609Z weighted avg       0.69      0.67      0.68      8295
+2025-04-10T02:54:27.1723030Z  samples avg       0.73      0.71      0.69      8295
+2025-04-10T02:54:27.1723313Z 
+2025-04-10T02:54:27.1723434Z [94m
+2025-04-10T02:54:27.1723737Z === Accuracy Per Label ===[0m
+2025-04-10T02:54:27.1724136Z hatespeech: [92m0.7685231228244654[0m
+2025-04-10T02:54:27.1724547Z offensive: [92m0.7682744903033317[0m
+2025-04-10T02:54:27.1724934Z race: [92m0.7814520139234212[0m
+2025-04-10T02:54:27.1725301Z religion: [92m0.8893585280954749[0m
+2025-04-10T02:54:27.1725706Z gender: [92m0.7881650919940328[0m
+2025-04-10T02:54:27.1726233Z sexual: [92m0.9390850323222277[0m
+2025-04-10T02:54:27.1726594Z misc: [92m0.7896568871208354[0m
+2025-04-10T02:54:27.1726796Z 
+2025-04-10T02:54:27.1727144Z === Subset Accuracy (exact match of all labels): [92m0.3391347588264545[0m
+2025-04-10T02:54:27.1727674Z [91mHamming Loss: 0.1822[0m
+2025-04-10T02:55:22.0443788Z /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in samples with no predicted labels. Use `zero_division` parameter to control this behavior.
+2025-04-10T02:55:22.0447138Z   _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+2025-04-10T02:56:26.8235752Z [95m[1m========== RANDOM FOREST ==========[0m
+2025-04-10T02:56:26.8237478Z [93m===== Processing dataset: cyberbullying_df =====[0m
+2025-04-10T02:56:26.8241616Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T02:56:26.8242509Z                    precision    recall  f1-score   support
+2025-04-10T02:56:26.8243215Z 
+2025-04-10T02:56:26.8247364Z               age       0.99      0.98      0.98      1599
+2025-04-10T02:56:26.8248066Z              race       0.99      0.98      0.99      1616
+2025-04-10T02:56:26.8248665Z            gender       0.94      0.85      0.89      1541
+2025-04-10T02:56:26.8249302Z not_cyberbullying       0.84      0.83      0.83      1634
+2025-04-10T02:56:26.8261674Z          religion       0.94      0.95      0.95      1584
+2025-04-10T02:56:26.8262196Z 
+2025-04-10T02:56:26.8262470Z         micro avg       0.94      0.92      0.93      7974
+2025-04-10T02:56:26.8263566Z         macro avg       0.94      0.92      0.93      7974
+2025-04-10T02:56:26.8264176Z      weighted avg       0.94      0.92      0.93      7974
+2025-04-10T02:56:26.8265055Z       samples avg       0.91      0.92      0.92      7974
+2025-04-10T02:56:26.8265593Z 
+2025-04-10T02:56:26.8266221Z [94m
+2025-04-10T02:56:26.8266739Z === Accuracy Per Label ===[0m
+2025-04-10T02:56:26.8267291Z age: [92m0.9936042136945071[0m
+2025-04-10T02:56:26.8267822Z race: [92m0.9941058439929772[0m
+2025-04-10T02:56:26.8268334Z gender: [92m0.9597441685477803[0m
+2025-04-10T02:56:26.8268928Z not_cyberbullying: [92m0.9317782794080762[0m
+2025-04-10T02:56:26.8269634Z religion: [92m0.9796839729119639[0m
+2025-04-10T02:56:26.8270054Z 
+2025-04-10T02:56:26.8270625Z === Subset Accuracy (exact match of all labels): [92m0.9118384750438927[0m
+2025-04-10T02:56:26.8271490Z [91mHamming Loss: 0.0282[0m
+2025-04-10T02:56:26.8272093Z [93m===== Processing dataset: hatespeech_df =====[0m
+2025-04-10T02:56:26.8272760Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T02:56:26.8297103Z               precision    recall  f1-score   support
+2025-04-10T02:56:26.8297449Z 
+2025-04-10T02:56:26.8298726Z   hatespeech       0.79      0.60      0.68      1325
+2025-04-10T02:56:26.8299217Z    offensive       0.83      0.92      0.87      2697
+2025-04-10T02:56:26.8299654Z         race       0.83      0.61      0.70      1346
+2025-04-10T02:56:26.8300083Z     religion       0.82      0.84      0.83       948
+2025-04-10T02:56:26.8300510Z       gender       0.62      0.30      0.40       762
+2025-04-10T02:56:26.8300949Z       sexual       0.80      0.78      0.79       495
+2025-04-10T02:56:26.8301661Z         misc       0.58      0.27      0.37       722
+2025-04-10T02:56:26.8301946Z 
+2025-04-10T02:56:26.8302095Z    micro avg       0.80      0.69      0.74      8295
+2025-04-10T02:56:26.8302535Z    macro avg       0.75      0.62      0.66      8295
+2025-04-10T02:56:26.8303005Z weighted avg       0.78      0.69      0.72      8295
+2025-04-10T02:56:26.8303524Z  samples avg       0.82      0.75      0.75      8295
+2025-04-10T02:56:26.8303854Z 
+2025-04-10T02:56:26.8304045Z [94m
+2025-04-10T02:56:26.8304388Z === Accuracy Per Label ===[0m
+2025-04-10T02:56:26.8304844Z hatespeech: [92m0.8162605668821482[0m
+2025-04-10T02:56:26.8305334Z offensive: [92m0.8167578319244158[0m
+2025-04-10T02:56:26.8305990Z race: [92m0.8262058677274987[0m
+2025-04-10T02:56:26.8306452Z religion: [92m0.9169567379413227[0m
+2025-04-10T02:56:26.8306931Z gender: [92m0.8324216807558429[0m
+2025-04-10T02:56:26.8307373Z sexual: [92m0.9495275982098459[0m
+2025-04-10T02:56:26.8307815Z misc: [92m0.8339134758826454[0m
+2025-04-10T02:56:26.8308074Z 
+2025-04-10T02:56:26.8308484Z === Subset Accuracy (exact match of all labels): [92m0.443063152660368[0m
+2025-04-10T02:56:26.8309117Z [91mHamming Loss: 0.1440[0m
+2025-04-10T02:56:46.5030862Z /opt/hostedtoolcache/Python/3.13.2/x64/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in samples with no predicted labels. Use `zero_division` parameter to control this behavior.
+2025-04-10T02:56:46.5035024Z   _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+2025-04-10T02:57:06.8463342Z [95m[1m========== XGBoost ==========[0m
+2025-04-10T02:57:06.8465606Z [93m===== Processing dataset: cyberbullying_df =====[0m
+2025-04-10T02:57:06.8466376Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T02:57:06.8466812Z                    precision    recall  f1-score   support
+2025-04-10T02:57:06.8467097Z 
+2025-04-10T02:57:06.8467227Z               age       0.99      0.97      0.98      1599
+2025-04-10T02:57:06.8467666Z              race       0.99      0.99      0.99      1616
+2025-04-10T02:57:06.8468063Z            gender       0.95      0.84      0.89      1541
+2025-04-10T02:57:06.8468488Z not_cyberbullying       0.81      0.91      0.86      1634
+2025-04-10T02:57:06.8468925Z          religion       0.97      0.94      0.95      1584
+2025-04-10T02:57:06.8469196Z 
+2025-04-10T02:57:06.8469813Z         micro avg       0.94      0.93      0.93      7974
+2025-04-10T02:57:06.8470228Z         macro avg       0.94      0.93      0.93      7974
+2025-04-10T02:57:06.8470661Z      weighted avg       0.94      0.93      0.93      7974
+2025-04-10T02:57:06.8471083Z       samples avg       0.93      0.93      0.93      7974
+2025-04-10T02:57:06.8471365Z 
+2025-04-10T02:57:06.8471504Z [94m
+2025-04-10T02:57:06.8471802Z === Accuracy Per Label ===[0m
+2025-04-10T02:57:06.8472185Z age: [92m0.9933533985452722[0m
+2025-04-10T02:57:06.8472552Z race: [92m0.9956107348883872[0m
+2025-04-10T02:57:06.8472944Z gender: [92m0.9608728367193379[0m
+2025-04-10T02:57:06.8473360Z not_cyberbullying: [92m0.9386756960120392[0m
+2025-04-10T02:57:06.8473789Z religion: [92m0.9805618259342864[0m
+2025-04-10T02:57:06.8474017Z 
+2025-04-10T02:57:06.8474373Z === Subset Accuracy (exact match of all labels): [92m0.9235013794833208[0m
+2025-04-10T02:57:06.8474903Z [91mHamming Loss: 0.0262[0m
+2025-04-10T02:57:06.8475353Z [93m===== Processing dataset: hatespeech_df =====[0m
+2025-04-10T02:57:06.8475992Z [94m=== Classification Report (per label) ===[0m
+2025-04-10T02:57:06.8476423Z               precision    recall  f1-score   support
+2025-04-10T02:57:06.8476695Z 
+2025-04-10T02:57:06.8476843Z   hatespeech       0.80      0.60      0.68      1325
+2025-04-10T02:57:06.8477254Z    offensive       0.82      0.93      0.87      2697
+2025-04-10T02:57:06.8477654Z         race       0.84      0.59      0.69      1346
+2025-04-10T02:57:06.8478022Z     religion       0.83      0.81      0.82       948
+2025-04-10T02:57:06.8478407Z       gender       0.65      0.33      0.44       762
+2025-04-10T02:57:06.8479043Z       sexual       0.79      0.73      0.76       495
+2025-04-10T02:57:06.8479422Z         misc       0.62      0.27      0.38       722
+2025-04-10T02:57:06.8479681Z 
+2025-04-10T02:57:06.8479815Z    micro avg       0.80      0.68      0.74      8295
+2025-04-10T02:57:06.8480208Z    macro avg       0.77      0.61      0.66      8295
+2025-04-10T02:57:06.8480615Z weighted avg       0.79      0.68      0.72      8295
+2025-04-10T02:57:06.8481021Z  samples avg       0.82      0.74      0.75      8295
+2025-04-10T02:57:06.8481292Z 
+2025-04-10T02:57:06.8481422Z [94m
+2025-04-10T02:57:06.8481704Z === Accuracy Per Label ===[0m
+2025-04-10T02:57:06.8482103Z hatespeech: [92m0.817503729487817[0m
+2025-04-10T02:57:06.8482510Z offensive: [92m0.817503729487817[0m
+2025-04-10T02:57:06.8482897Z race: [92m0.8264545002486325[0m
+2025-04-10T02:57:06.8483260Z religion: [92m0.916708105420189[0m
+2025-04-10T02:57:06.8483643Z gender: [92m0.8388861263053208[0m
+2025-04-10T02:57:06.8484022Z sexual: [92m0.9438090502237693[0m
+2025-04-10T02:57:06.8484381Z misc: [92m0.8391347588264545[0m
+2025-04-10T02:57:06.8484579Z 
+2025-04-10T02:57:06.8484918Z === Subset Accuracy (exact match of all labels): [92m0.448284435604177[0m
+2025-04-10T02:57:06.8485458Z [91mHamming Loss: 0.1429[0m
+2025-04-10T02:57:06.9635197Z Post job cleanup.
+2025-04-10T02:57:07.1371616Z Post job cleanup.
+2025-04-10T02:57:07.2319687Z [command]/usr/bin/git version
+2025-04-10T02:57:07.2361787Z git version 2.49.0
+2025-04-10T02:57:07.2409620Z Temporarily overriding HOME='/home/runner/work/_temp/e7298054-bdae-4672-ac0b-9d2de2624636' before making global git config changes
+2025-04-10T02:57:07.2411448Z Adding repository directory to the temporary git global config as a safe directory
+2025-04-10T02:57:07.2416237Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/BERT/BERT
+2025-04-10T02:57:07.2460953Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-04-10T02:57:07.2497983Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-04-10T02:57:07.2837182Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-04-10T02:57:07.2883502Z http.https://github.com/.extraheader
+2025-04-10T02:57:07.2911363Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-04-10T02:57:07.2970852Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-04-10T02:57:07.3528380Z Cleaning up orphan processes
