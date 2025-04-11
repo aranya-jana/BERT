@@ -16,6 +16,9 @@ for dataset_name, df in context.items():
     X = df["text"]
     y = df.drop(columns=["text"])  # Multi-label targets
 
+    # Handle NaN values in the text column
+    X = X.fillna("")  # Replace NaN with an empty string
+
     # Step 3: Vectorize text
     vectorizer = TfidfVectorizer(stop_words="english", max_features=1000)
     X_vectorized = vectorizer.fit_transform(X)
