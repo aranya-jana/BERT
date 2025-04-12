@@ -14,7 +14,7 @@ import re
 
 def tokenizer(text):
     # Lowercase, remove non-alphabetic characters (except spaces), split by whitespace
-    text = text.lower()
+    text = str(text).lower()
     text = re.sub(r"[^a-z0-9\s]", "", text)  # Keep alphanumerics and spaces
     tokens = text.strip().split()
     return tokens
