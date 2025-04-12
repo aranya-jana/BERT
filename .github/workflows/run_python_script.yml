@@ -22,16 +22,16 @@ jobs:
     - name: Install dependencies (if any)
       run: |
         python -m pip install --upgrade pip
-        # pip install pandas
-        # pip install scikit-learn
-        # pip install xgboost
-        # pip install torch
-        # pip install transformers 
-        # pip install datasets
-        # pip install torch
-        # pip install tqdm
-        # pip install huggingface_hub[hf_xet]
-        # pip install hf_xet
+        pip install pandas
+        pip install scikit-learn
+        pip install xgboost
+        pip install torch
+        pip install transformers 
+        pip install datasets
+        pip install torch
+        pip install tqdm
+        pip install huggingface_hub[hf_xet]
+        pip install hf_xet
 
     - name: Run Python script
       run: |
@@ -41,9 +41,9 @@ jobs:
         # python 0004-DecisionTree.py
         # python 0005-RandomForest.py
         # python 0006-XGBoost.py
-        # python 0007-CNN.py
-        # python 0008-LSTM.py
-        # python 0009-GRU.py
+        python 0007-CNN.py
+        python 0008-LSTM.py
+        python 0009-GRU.py
         # python 0010-BERT.py
         # python 0011-BERT.py
         # python 0011-XLNet.py
