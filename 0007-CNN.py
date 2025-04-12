@@ -13,7 +13,7 @@ import re
 
 # Custom preprocessing
 def tokenize(text):
-    return re.findall(r'\b\w+\b', text.lower())
+    return re.findall(r'\b\w+\b', str(text).lower())
 
 # Custom dataset class
 class TextDataset(Dataset):

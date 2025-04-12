@@ -51,10 +51,10 @@ jobs:
         # python 0004-DecisionTree.py
         # python 0005-RandomForest.py
         # python 0006-XGBoost.py
-        # python 0007-CNN.py
-        # python 0008-LSTM.py
-        # python 0009-GRU.py
-        # python 0010-BERT.py
+        python 0007-CNN.py
+        python 0008-LSTM.py
+        python 0009-GRU.py
+        python 0010-BERT.py
         # python 0011-BERT.py
         # python 0011-XLNet.py
         # python 0012-DistilBERT.py
