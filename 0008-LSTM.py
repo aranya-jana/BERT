@@ -20,7 +20,7 @@ def tokenizer(text):
     return tokens
 
 def tokenize(text):
-    return re.findall(r'\b\w+\b', text.lower())
+    return re.findall(r'\b\w+\b', str(text).lower())
 
 # Dataset
 class TextDataset(Dataset):
