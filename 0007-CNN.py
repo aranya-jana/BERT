@@ -115,7 +115,7 @@ for dataset_name, df in context.items():
     y_true = np.vstack(all_targets)
 
     print("\033[94m=== Classification Report (per label) ===\033[0m")
-    print(classification_report(y_true, y_pred, target_names=df.columns[1:]))
+    print(classification_report(y_true, y_pred, target_names=df.columns[1:], digits=4))
 
     label_accuracies = (y_pred == y_true).mean(axis=0)
     print("\033[94m\n=== Accuracy Per Label ===\033[0m")
