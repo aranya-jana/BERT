@@ -39,7 +39,7 @@ for dataset_name, df in context.items():
 
     # Step 7: Evaluation
     print("\033[94m=== Classification Report (per label) ===\033[0m")
-    print(classification_report(y_test, y_pred, target_names=y.columns))
+    print(classification_report(y_test, y_pred, target_names=y.columns, digits=4))
 
     # Accuracy per label
     label_accuracies = (y_pred == y_test).mean(axis=0)

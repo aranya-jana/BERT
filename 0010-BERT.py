@@ -107,7 +107,7 @@ for dataset_name, df in context.items():
             progress_bar.set_postfix(loss=loss.item())
 
         epoch_time = time.time() - start_time
-        print(f"✅ Epoch {epoch+1} completed in {epoch_time:.2f} seconds | Total Loss: {total_loss:.4f}\n")
+        print(f"✅ Epoch {epoch+1} completed in {epoch_time:.4f} seconds | Total Loss: {total_loss:.4f}\n")
 
     print("🧪 Starting Evaluation...\n")
     model.eval()

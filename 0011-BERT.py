@@ -107,7 +107,7 @@ for dataset_name, df in context.items():
         avg_loss = train_loss / len(train_loader)
         epoch_time = time.time() - epoch_start
 
-        print(f"🟣 Epoch {epoch+1} completed | Loss: {avg_loss:.4f} | Time: {epoch_time:.2f}s")
+        print(f"🟣 Epoch {epoch+1} completed | Loss: {avg_loss:.4f} | Time: {epoch_time:.4f}s")
 
         # Early Stopping Check
         if avg_loss < best_loss:
@@ -147,7 +147,7 @@ for dataset_name, df in context.items():
     label_accuracies = (y_pred == y_true).mean(axis=0)
     print("\033[94m\n=== Accuracy Per Label ===\033[0m")
     for label, acc in zip(df.columns[1:], label_accuracies):
-        print(f"{label}: \033[92m{acc:.2f}\033[0m")
+        print(f"{label}: \033[92m{acc:.4f}\033[0m")
 
     subset_accuracy = accuracy_score(y_true, y_pred)
     hloss = hamming_loss(y_true, y_pred)
@@ -155,4 +155,4 @@ for dataset_name, df in context.items():
     print(f"\n✅ Subset Accuracy: \033[92m{subset_accuracy:.4f}\033[0m")
     print(f"🔻 Hamming Loss: \033[91m{hloss:.4f}\033[0m")
 
-    print(f"🕒 Total time: {time.time() - start_time:.2f} seconds")
+    print(f"🕒 Total time: {time.time() - start_time:.4f} seconds")
