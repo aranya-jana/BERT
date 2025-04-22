@@ -1,0 +1,45 @@
+% \textbf{1. Data Pre-processing:} Includes removal of user mentions, URLs, HTML tags, and Unicode anomalies, convertion of all text to lowercase, whitespace normalization and Language Detection using \texttt{fastText} or \texttt{langdetect} slong with Tokenizing text using \texttt{IndicBERT} or \texttt{mBERT}.  \\
+% \text{ } \\
+% \textbf{2. Feature Extraction:}  Performed sentiment analysis using \texttt{VADER} and \texttt{BERT-Sentiment} and Emotion Detection using \texttt{DistilBERT}. Encoded demographic markers (age, gender, religion, race).  \\
+
+% \begin{algorithmic}
+% \[
+% \mathcal{L}_{\text{BERT}} = - \sum_{i \in \mathcal{M}} \log P(x_i \mid x_{\setminus i}) - \left[ y \log(p) + (1 - y) \log(1 - p) \right]
+% \]
+% \end{algorithmic}
+
+% \text{ } \\
+% \textbf{3. Model Training:} Used \texttt{CNN} for spatial feature extraction on text embeddings, Augmented \texttt{BERT} for contextual understanding, ensembled Random Forest, XGBoost, and Logistic Regression for final classification. \\
+% \text{ } \\
+% \textbf{4. Prediction \& Output:} Generated classification for each comment. Labeled as cyberbullying (with category) or non-cyberbullying. \\
+
+\textbf{1. Data Pre-processing:} Used regex for cleaning, lowercase + whitespace normalization, language detection via \texttt{fastText}/\texttt{langdetect}, and tokenization with \texttt{IndicBERT}/\texttt{mBERT}.
+
+\text{ } \\
+\textbf{2. Feature Extraction:} Applied sentiment analysis using \texttt{VADER} and \texttt{BERT-Sentiment}, and emotion detection using \texttt{DistilBERT}. Among all, \texttt{BERT} yielded the most effective feature representations.
+
+\text{ } \\
+\textbf{3. BERT-based Decision Mechanism:} \texttt{BERT} captures contextual dependencies to identify semantic clues from comments and classifies them based on learned patterns of cyberbullying behavior. The loss function combines masked language modeling and binary classification as:
+
+\[
+\mathcal{L}_{\text{BERT}} = - \sum_{i \in \mathcal{M}} \log P(x_i \mid x_{\setminus i}) - \left[ y \log(p) + (1 - y) \log(1 - p) \right]
+\]
+
+where \( \mathcal{M} \) denotes the masked token positions, \( x_i \) the original tokens, and \( p \) the predicted probability for binary cyberbullying classification.
+
+\text{ } \\
+\textbf{4. Exit:} Output generated as cyberbullying (with category) or non-cyberbullying for each comment.
+
+
+\text{ } \\
+\textbf{Notations}
+\begin{itemize}
+    \item $\mathcal{L}_{\text{BERT}}$: Total loss function used in BERT.
+    \item $\sum_{i \in \mathcal{M}}$: Summation over the set $\mathcal{M}$, the indices of masked tokens.
+    \item $x_i$: The true token at position $i$.
+    \item $x_{\backslash i}$: The input sequence excluding token at position $i$.
+    \item $P(x_i \mid x_{\backslash i})$: Probability of token $x_i$ given the context $x_{\backslash i}$.
+    \item $y$: Ground truth label for Next Sentence Prediction (NSP), $y \in \{0, 1\}$.
+    \item $p$: Predicted probability that the second sentence follows the first one.
+    \item $y \log(p) + (1 - y)\log(1 - p)$: Binary cross-entropy loss for NSP.
+\end{itemize}

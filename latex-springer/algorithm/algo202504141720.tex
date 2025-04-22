@@ -1,0 +1,43 @@
+\textbf{1. Data Pre-processing:} Includes removal of user mentions, URLs, HTML tags, and Unicode anomalies, convertion of all text to lowercase, whitespace normalization and Language Detection using \texttt{fastText} or \texttt{langdetect} slong with Tokenizing text using \texttt{IndicBERT} or \texttt{mBERT}.  \\
+\text{ } \\
+\textbf{2. Feature Extraction:}  Performed sentiment analysis using \texttt{VADER} and \texttt{BERT-Sentiment} and Emotion Detection using \texttt{DistilBERT}. Encoded demographic markers (age, gender, religion, race).  \\
+
+\begin{algorithmic}
+\State BERT fine-tuning is done by minimizing the binary cross-entropy loss for each label:
+
+\textbf{BERT Pre-training Loss Function}
+
+The total BERT loss \( \mathcal{L}_{\text{BERT}} \) is the sum of the Masked Language Modeling (MLM) loss and the Next Sentence Prediction (NSP) loss:
+\\
+\[
+\mathcal{L}_{\text{BERT}} = \mathcal{L}_{\text{MLM}} + \mathcal{L}_{\text{NSP}}
+\]
+\\
+\textbf{1. Masked Language Modeling (MLM) Loss}
+
+Let \( \mathcal{M} \subset \{1, 2, \dots, n\} \) be the set of masked token positions in an input sequence \( x = \{x_1, x_2, \dots, x_n\} \). The MLM loss is:
+\\
+\[
+\mathcal{L}_{\text{MLM}} = - \sum_{i \in \mathcal{M}} \log P(x_i \mid x_{\setminus i})
+\]
+
+\textbf{2. Next Sentence Prediction (NSP) Loss}
+\\
+Let \( y \in \{0, 1\} \) be the NSP label (1 = next sentence, 0 = not next), and \( p \) be the predicted probability from the NSP classifier (typically from the [CLS] token output). Then:
+\\
+\[
+\mathcal{L}_{\text{NSP}} = - \left[ y \log(p) + (1 - y) \log(1 - p) \right]
+\]
+\\
+\textbf{Combined Loss}
+\\
+\[
+\mathcal{L}_{\text{BERT}} = - \sum_{i \in \mathcal{M}} \log P(x_i \mid x_{\setminus i}) - \left[ y \log(p) + (1 - y) \log(1 - p) \right]
+\]
+
+\end{algorithmic}
+
+\text{ } \\
+\textbf{3. Model Training:} Used \texttt{CNN} for spatial feature extraction on text embeddings, Augmented \texttt{BERT} for contextual understanding, ensembled Random Forest, XGBoost, and Logistic Regression for final classification. \\
+\text{ } \\
+\textbf{4. Prediction \& Output:} Generated classification for each comment. Labeled as cyberbullying (with category) or non-cyberbullying. \\
