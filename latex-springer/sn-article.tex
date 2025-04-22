@@ -1,0 +1,446 @@
+
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% 
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{placeins}
+\usepackage{float}
+\usepackage[justification=centering]{caption}
+
+%%%%
+
+%%%%%=============================================================================%%%%
+
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+
+\title{Machine Learning Meets Digital Empathy: A Holistic Approach to Cyberbullying Detection}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author{\fnm{Aranya} \sur{Jana}\textsuperscript{1[\texttt{\orcidID{0009-0007-0189-6012}}]}}%%\email{iauthor@gmail.com}
+
+\author{\fnm{Arindam} \sur{Sahoo}\textsuperscript{1[\texttt{\orcidID{0009-0001-9952-1935}}]}}%%\email{iiiauthor@gmail.com}
+
+\author{\fnm{Abir} \sur{Nath}\textsuperscript{1[\texttt{\orcidID{0009-0008-2597-0747}}]}}%%\email{iiauthor@gmail.com}
+
+\author{\fnm{Sujata} \sur{Mondal}\textsuperscript{1[\texttt{\orcidID{0009-0000-8244-5166}}]}}%%\email{iiiauthor@gmail.com}
+
+\author{\fnm{Tanmoy} \sur{Ghosh}\textsuperscript{1[\texttt{\orcidID{0000-0002-5479-5465}}]}}%%\email{iiiauthor@gmail.com}
+
+\author{\fnm{Dishani} \sur{Roy}\textsuperscript{1[\texttt{\orcidID{0009-0008-8879-6109}}]}}%%\email{iiiauthor@gmail.com}
+
+\affil[1]{\orgname{Narula Institute of Technology}, \city{Kolkata}, \state{West Bengal}, \country{India}}
+
+
+%%==================================%%
+%% Sample for unstructured abstract %%
+%%==================================%%
+
+% \abstract{A cyberbully is an emerging risk of digital communities whose existence requires creating a trustworthy system for the detection and protection of mental health. Solving this issue is achieved using a combination of sophisticated machine learning methods and understanding from neurobiology. Convolutional Neural Networks (CNNs) and Augmented BERT are used in processing large volumes of social network data, outperforming all existing approaches through improved precision and recall. The model facilitates real-time monitoring, which allows for quicker responses to harassment incidents. Using large amounts of data from online interactions helps achieve a better picture of cyberbullying trends and behavioral patterns. Another part of this problem concerns the adverse effect of cyberbullying on human brain neurobiology, with suggested prevention and intervention strategies. Knowledge of the psychological processes behind such behavior informs more effective education and support interventions for those who are affected.Fostering a culture of respect and empathy in online environments is also identified as one of the determinants of decreased levels of cyberbullying prevalence. These results suggest the need for technological innovation and inter-disciplinary strategy in addressing the effects of cyberbullying.}
+
+\abstract{A cyberbully is an emerging risk of digital communities whose existence requires creating a trustworthy system for the detection and protection of mental health. The resolution of this problem necessitates both technological advancements in addition to psychological comprehension. Our research develops a combined cyberbullying detection system which uses Convolutional Neural Networks (CNNs) along with a transformer-based BERT network that processes extensive multilingual social media content. The model supports English and Hindi and Bengali as well as their combinations (Hinglish and Benglish) for processing content to detect cyberbullying with cultural awareness and language adaptiveness. This harassment system maintains instantaneous analysis methods and contains emotion and sentiment detection elements that boost model comprehension of user intentions and situational context. Researchers found cyberbullying creates psychological harm in their investigations and indicated that uniting behavioral comprehension with technological solutions could develop secure online environments with higher empathy. The study proven that successful cyberbullying prevention requires integrating machine learning with mental health methods as new tools to fight against modern cyberbullying cases.}
+
+%%================================%%
+%% Sample for structured abstract %%
+%%================================%%
+
+
+\keywords{Cyberbullying, Detection System, Machine Learning, BERT, Text Analysis, Social Media, NLP}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+\clearpage
+\section{Introduction}\label{sec1}
+
+\input{sn-introduction.tex}
+
+
+
+\section{Literature Study}\label{sec2}
+The detection of cyberbullying on social media, including school groups\cite{bib7}\cite{bib1} and professional networks has become a prominent research topic because of increasing online harassment effects on mental health. Multiple researchers investigate various approaches starting with rule-based methodologies through advanced ML and DL techniques, according to reference \cite{bib2}. The second segment analyzes critical studies together with their research approaches and challenges, and unaddressed areas.
+
+
+\subsection{Survey on various Detection Techniques}
+
+% \input{sn-table}
+
+\\Isabella Kamanthi, P. \cite{bib7}
+The combination of being a victim and abuser exposes students to higher risks of developing depression and anxiety so researchers emphasize the requirement for improved whole-school bullying prevention strategies.
+
+\\Orr, Taaj & Weraphorn. \cite{bib1}
+Researchers analyzed cyberbullying across demographics using surveys; findings suggest future studies explore emotional impact and peer protection roles in such cases.
+
+\\Dadvar, Maral, et al. \cite{bib2}
+Supervised classification received training through all three features including content and specific cyberbullying indicators along with user attributes. A user context addition to the system detected cyberbullying in 4,626 manual reviews of YouTube comments from 3,858 users while reaching 77\% precision and 55\% recall.
+
+% \\Zhang, Xiang, and Yann LeCun \cite{bib3} 
+% Temporal convolutional networks serve as the analytical tools during ontology classification and sentiment analysis while eliminating standard linguistic approaches. Using large-scale datasets like Yahoo! The methods applied their algorithms on Yahoo! Answers combined with Amazon reviews and DBpedia and produced accuracy between 59.16\% and 98.27\%. The research underlines how big and professional datasets and easily accessible resources play a vital role in performing text understanding effectively.
+
+\\MacAvaney, Sean, et al. \cite{bib5}
+Research investigators relied on SVM to process multi-view TF-IDF features which yielded 80\% Stormfront success and 53.68\% TRAC macro F1 while exceeding all existing techniques. The research focused on both data selection procedures and enhanced understanding methods.
+
+\\Kovacs, Gyorgy, Pedro Alonso, and Rajkumar Saini \cite{bib6}
+Through BERT variants alongside external linguistic databases the scientists achieved 0.7953 macro F1 and 0.8498 weighted F1 results on HASOC 2019. The research conducted shows that additional hate speech definitions together with larger labeled datasets would advance understanding.
+
+% \\Sathya Devi M., Dr. Indira B., Vinayak M.S., Vinay B.S. \cite{bib4}
+% The model utilized ensemble learning combined with deep CNNs to analyze text and video contents for detecting harassment. The detection system reached F1-scores between 0.85 and 0.97 throughout the analysis of four cyberbullying classifications. The author used Twitter together with video data while recommending psychological elements for inclusion in detection systems.
+
+\\Fati, Suliman Mohamed, et al. \cite{bib9}
+A Conv1DLSTM model with attention achieved 86.49\% accuracy, 81.46\% precision, 89.19\% recall, and 85.15\% F1-score on 37,373 tweets. The study urges standardized, multilingual datasets.
+
+Islam, Md Manowarul, et al. \cite{bib10}
+Research demonstrated NLP and ML models where SVM reached more than 75\% success rate for recognizing cyberbullying. Current Facebook and Twitter multilingual detection systems need improvement according to the obtained monitoring results.
+
+\\Vora, Deepali, et al. \cite{bib11}
+The authors used deep learning with attention mechanisms alongside word2vec CBOW features and Conv1DLSTM classifier to reach 94.03\% accuracy when analyzing Twitter data globally.
+
+% \\Kumar, Akshi, and Nitin Sachdeva \cite{bib12}
+% The applied sequence of Bi-GRU + Attention + CapsNet produced 93.89\% accuracy in the model performance. The study analyzed difficulties when working with multilingual and multimodal datasets through using data from Formspring.me and MySpace.
+
+% \\Al-Ajlan, Monirah Abdullah, and Mourad Ykhlef \cite{bib13}
+% A CNN-CB model in the study reached 95\% accuracy and 93\% precision while processing the 39,000 documented tweets. The research focuses on emphasizing the necessity of developing sophisticated algorithms to address the new methods used in cyberbullying.
+
+\\Akhter, Muhammad Pervez, et al. \cite{bib14}
+Research evaluated deep learning models (CNN, LSTM, BLSTM, CLSTM) and traditional ML approaches for abusive language detection while deep learning surpassed 90\% accuracy through use of Urdu and Roman Urdu datasets to handle sparse datasets.
+
+\\Qiu, Jiabao, Melody Moh, and Teng-Sheng Moh \cite{bib15}
+Using CNN and Tensor Fusion Network together with VGG-19 helped the study achieve 89\%–92\% accuracy when processing text and metadata from Twitter API though some irrelevant attributes were present.
+
+\\Mioara, Boca-Zamfir \cite{bib16}
+Habit key scored 0.67 under pre-processing that applied TF-IDF and SVM classifiers according to this study despite its lack of focus on social media and advanced analysis models.
+
+\\Paul, Sayanta, Sriparna Saha, and Mohammed Hasanuzzaman \cite{bib17}
+Applied Universal Sentence Encoder, Transformer Encoder, ResBiLSTM, and Recurrent CNN. The system demonstrated a success rate between 47-69\% when identifying bullies along with 72-87\% achievement in detecting non-bullies. Data collected from Vine. Limited by small training datasets.
+
+% \\Shakeel, Nida, and Rajendra Kumar Dwivedi \cite{bib18}
+% The research used SVM and Logistic Regression models which led to 92.6\% accuracy from the Logistic Regression model. The analyzed comments originated from Twitter as well as Facebook and YouTube. Machine learning methods used for this study were restricted to supervised execution series.
+
+\\Toktarova, Aigerim, et al. \cite{bib19}
+The research demonstrated how deep learning models including LSTM, BiLSTM and CNN outperformed shallow models with Word2Vec and GloVe and provided higher F1-scores reaching up to 0.899. Cyberbullying detection methods need enhancement according to this research and scientists require additional investigation.
+
+\\Esha et al. \cite{bib20}
+The research team used NLP along with ML-based aggressive language detection methods. The accuracy rates obtained by using Logistic Regression and Random Forest exceeded other methods but remained between 0.50 and 0.53 due to difficulties detecting insults. Dataset details were missing.
+
+% \\Rabani S.T., Khan Q.R. and Akib K. \cite{bib21}
+% Researchers retrieved tweets from Twitter as part of their work which they cleaned then manually assigned classes. Random Forest ensemble demonstrated 98.5\% accuracy as well as 98.7\% precision when identifying suicidal from non-suicidal tweets. Lacked predictive and intervention capabilities.
+\\Text-based detection of cyberbullying is the most common approach used in the literature. Several machine learning and deep learning techniques have been employed for classifying abusive and non-abusive content in text form. 
+    \item
+    \textbf{Machine Learning Approaches:}
+    Machine learning (ML) techniques, including Naive Bayes, Support Vector Machines (SVM), and Decision Trees, have been widely used for cyberbullying detection.\cite{bib3} These models rely on handcrafted features such as word frequencies, syntactic structures, and sentiment scores to detect bullying behavior. A notable example is the work of Dadvar et al. (2013)\cite{bib2}, who applied a SVM classifier to identify cyberbullying comments on Twitter, achieving a classification accuracy of 80\%. While effective, these models often struggle with scalability and generalizability to large datasets, especially when the data is noisy or unstructured.
+\subsection{Data Analysis}
+\subsubsection{Data Preprocessing}
+% The research dataset contained two main columns with text comments and their relevant classification labels. The label system specified both the presence of cyberbullying and which category of abuse applied from among age, race, gender or religion. The analysis included remarks designated as not\_cyberbullying as well as abusive content.
+
+% The labeling scheme received a one-hot encoded transformation into a six-column format of text as well as age, race, gender, not\_cyberbullying, and religion for multi-label classification and better interpretability through analysis and model training.
+
+% The relevant category received a value of 1 while every other category in each entry received a value of 0. If a comment belonged to the category of gender analysts set the gender column at value 1 and every other class column at value 0. The comments flagged as not\_cyberbullying received a single 1 in the specific column of marking as the remaining classification categories became 0.
+
+% The modification allowed the dataset to handle two classification tasks simultaneously with binary and multi-class structure through simplified assessment processes.
+
+% The dataset consisted of user comments labeled either as \texttt{not\_cyberbullying} or with one of several cyberbullying categories: \texttt{age}, \texttt{race}, \texttt{gender}, \texttt{religion}.  The six binary columns were derived from the original label column in order to represent each possible category. The single-point value of one was assigned to the relevant category field and all other fields received a value of zero for each row.
+
+The dataset included text comments categorized into cyberbullying types that were grouped into age groups, racial identities, gender identities, religious backgrounds together with non-cyberbullying text labels. The data received one-hot encoding across five categories which included text, age, race, gender and religion and not cyberbullying by setting 1 for relevant categories while the others were set to 0. The defined structure permitted one framework to conduct both binary and multi-class classification operations.
+
+The \texttt{text} column underwent preprocessing which combined successive spaces into one space while stripping mentions and URLs, HTML tags and Unicode characters and transformed text into lowercase. The implemented standardization methods decreased both numerical and processing errors and bias during the processing step.
+
+This research required multilingual compatibility so synthetic data augmentation using back-translation and transliteration produced replicas of Hinglish, Benglish, Hindi, and Bengali content types. The processing system used FastText for language identification purposes to route data according to specific linguistic needs. The preprocessing step relied on multilingual BERT-compatible tokenizers for tokenization before performing language-specific stopword removal during both English and Indic language processing.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{Graphs/flowchart2.jpg}
+    \caption{Flowchart of the model}
+    \label{fig:flowchart}
+\end{figure}
+
+% \\The text cleaning steps included converting all text to lowercase, removing URLs, HTML tags, and usernames, as well as eliminating emojis and extra whitespaces.
+% The dataset was split into 80\% training and 20\% testing sets using stratified sampling.
+
+% A complete preprocessing step refined textual data before classification algorithms started to run. The sequential cleaning steps were implemented to the \texttt{text} column as follows:
+
+% \begin{itemize}
+%     \item \textbf{Lowercasing:} The conversion to lowercase characters solved replication issues generated by differing text format styles.
+%     \item \textbf{URL and HTML tag removal:} Regular expressions extracted URLs and HTML tags to prevent analysis bias.
+%     \item \textbf{Username and mention removal:} Removed user mentions or usernames like \texttt{@user} to prevent bias.
+%     \item \textbf{Whitespace normalization:} Replaced repeated spaces with a single space for text uniformity.
+%     \item \textbf{Emoji removal:} Eliminated Unicode symbols and emojis to ensure uniform character set.
+% \end{itemize}
+
+\subsection{Methodology and Result}
+
+
+% The analysis of cyberbullying detection models utilized a complete processing framework that involved data preparation followed by algorithm development then assessment of ten different methods including classic machine learning solutions and deep neural networks and transformer modules.
+
+The hybrid model pipeline contains three essential operational modules. Before analysis all input tweets undergo language detection to determine their language from English, Hindi, Bengali and Hinglish or Benglish. The Sentiment and Emotion Fusion Layer examines each sentiment-tagged comment by applying pretrained detection engines for sentiment analysis and emotions. Programming codes receive the output as feature vectors. A cyberbullying Classifier utilizes features from extracted data as input for ensembling three algorithms including Logistic Regression, Random Forest, and XGBoost models. The method included cross-validation to validate generalization capabilities.
+
+%\subsubsection{Data Preparation and Preprocessing}
+
+%The dataset consisted of user comments labeled either as \texttt{not\_cyberbullying} or with one of several cyberbullying categories: \texttt{age}, \texttt{race}, \texttt{gender}, \texttt{religion}.  The six binary columns were derived from the original label column in order to represent each possible category. The single-point value of one was assigned to the relevant category field and all other fields received a value of zero for each row.
+
+%Text cleaning steps included:
+%\begin{itemize}
+ %   \item Converting all text to lowercase
+  %  \item Removing URLs, HTML tags, and usernames
+   % \item Removing emojis and extra whitespaces
+%\end{itemize}
+
+%The dataset was split into 80\% training and 20\% testing sets using stratified sampling.
+
+\subsubsection{Algorithm}
+
+% \input{algorithm/algo202504132230}
+\input{algorithm/algo202504141832}
+
+
+\subsubsection{Model Implementation}
+
+The evaluation included distinct algorithms where the TF-IDF feature vectors trained Logistic Regression alongside Naive Bayes and Support Vector Machine (SVM) and Decision Tree and Random Forest and XGBoost. The research implemented Deep learning models adopting CNN alongside LSTM and GRU structures. The Hugging Face Transformers library was used to fine-tune BERT (base, uncased) as a transformer model. All models were optimized for multi-label classification using binary cross-entropy loss and evaluated using Subset Accuracy.
+
+\clearpage
+
+\subsubsection{Results}
+
+Table \ref{tab:detailed_metrics} presents detailed performance metrics—precision, recall, and F1-score—across five protected attributes: age, race, gender, religion, and not\_cyberbullying, for each algorithm.
+
+\begin{table}[h!]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l||c|c|c||c|c|c||c|c|c||c|c|c||c|c|c|}
+\hline
+\textbf{Model} & \multicolumn{3}{c||}{\textbf{age}} & \multicolumn{3}{c||}{\textbf{race}} & \multicolumn{3}{c||}{\textbf{gender}} & \multicolumn{3}{c||}{\textbf{religion}} & \multicolumn{3}{c|}{\textbf{not\_cyberbullying}} \\
+& \textbf{prec.} & \textbf{recall} & \textbf{f1-score} & \textbf{prec.} & \textbf{recall} & \textbf{f1-score} & \textbf{prec.} & \textbf{recall} & \textbf{f1-score} & \textbf{prec.} & \textbf{recall} & \textbf{f1-score} & \textbf{prec.} & \textbf{recall} & \textbf{f1-score} \\
+\hline
+Logistic Regression & 0.9594 & 0.9462 & 0.9528 & 0.982 & 0.9474 & 0.9644 & 0.9566 & 0.8014 & 0.8722 & 0.9628 & 0.916 & 0.9389 & 0.8353 & 0.7944 & 0.8143 \\
+Naive Bayes         & 0.9484 & 0.8974 & 0.9222 & 0.9753 & 0.8304 & 0.8971 & 0.9634 & 0.7171 & 0.8222 & 0.9312 & 0.8883 & 0.9092 & 0.8249 & 0.2999 & 0.4399 \\
+SVM                 & 0.9733 & 0.9586 & 0.965  & 0.9813 & 0.9722 & 0.9767 & 0.9632 & 0.8196 & 0.874  & 0.9652 & 0.9268 & 0.9456 & 0.8232 & 0.8207 & 0.8219 \\
+Decision Tree       & 0.9754 & 0.9675 & 0.9714 & 0.9752 & 0.9722 & 0.9737 & 0.8606 & 0.8456 & 0.853  & 0.9302 & 0.9261 & 0.9282 & 0.7798 & 0.7931 & 0.7864 \\
+Random Forest       & 0.9873 & 0.9712 & 0.9792 & 0.9918 & 0.974  & 0.9828 & 0.9251 & 0.9332 & 0.8767 & 0.9457 & 0.9451 & 0.9454 & 0.828  & 0.8219 & 0.8249 \\
+XGBoost             & 0.9929 & 0.9675 & 0.9808 & 0.9888 & 0.979  & 0.9838 & 0.9509 & 0.8293 & 0.886  & 0.9486 & 0.9765 & 0.9624 & 0.7966 & 0.9051 & 0.8476 \\
+CNN                 & 0.9817 & 0.9725 & 0.9771 & 0.9887 & 0.9759 & 0.9822 & 0.9109 & 0.8553 & 0.8822 & 0.9471 & 0.9375 & 0.9422 & 0.8623 & 0.8066 & 0.8184 \\
+LSTM                & 0.9589 & 0.9691 & 0.9639 & 0.9829 & 0.9816 & 0.9822 & 0.9193 & 0.8433 & 0.8796 & 0.9554 & 0.9607 & 0.958  & 0.8048 & 0.8761 & 0.8392 \\
+GRU                 & 0.967  & 0.9767 & 0.9719 & 0.9829 & 0.9816 & 0.9822 & 0.9277 & 0.8446 & 0.8842 & 0.9615 & 0.9352 & 0.9482 & 0.812  & 0.8612 & 0.8359 \\
+BERT                & 0.9872 & 0.9789 & \textbf{0.9863} & 0.9964 & 0.9812 & \textbf{0.9844} & 0.9232 & 0.9125 & \textbf{0.9136} & 0.951  & 0.9601 & \textbf{0.9623} & 0.8612 & 0.8876 & \textbf{0.8678} \\
+\hline
+\end{tabular}%
+}
+\caption{Detailed classification metrics of different models for protected attributes}
+\label{tab:detailed_metrics}
+\end{table}
+
+
+
+Table \ref{tab:subset_accuracy} presents the Subset Accuracy achieved by each algorithm on the test dataset.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Algorithm} & \textbf{Subset Accuracy} \\
+\hline
+Logistic Regression & 0.7926 \\
+Naive Bayes         & 0.7228 \\
+SVM                 & 0.8928 \\
+Decision Tree       & 0.8722 \\
+Random Forest       & 0.9047 \\
+XGBoost             & 0.9171 \\
+CNN                 & 0.8930 \\
+LSTM                & 0.9066 \\
+GRU                 & 0.9068 \\
+BERT                & \textbf{0.9416} \\
+\hline
+\end{tabular}
+\caption{Subset Accuracy of various models for cyberbullying detection}
+\label{tab:subset_accuracy}
+\end{table}
+
+
+\subsubsection{Visual Results for Each Algorithm}
+Figures below provide comparative visual insights into the performance of each algorithm used in the study.
+
+\begin{figure}[H]
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Graphs/LOGISTIC REGRESSION.png}
+        \caption{Performance of Logistic Regression}
+        \label{fig:logistic_regression}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Graphs/NAIVE BAYES.png}
+        \caption{Performance of Naive Bayes}
+        \label{fig:naive_bayes}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Graphs/SVM.png}
+        \caption{Performance of SVM}
+        \label{fig:svm}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Graphs/DECISION TREE.png}
+        \caption{Performance of Decision Tree}
+        \label{fig:decision_tree}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Graphs/RANDOM FOREST.png}
+        \caption{Performance of Random Forest}
+        \label{fig:random_forest}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Graphs/XGBOOST.png}
+        \caption{Performance of XGBoost}
+        \label{fig:xgboost}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Graphs/CNN.png}
+        \caption{Performance of CNN}
+        \label{fig:cnn}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Graphs/LSTM.png}
+        \caption{Performance of LSTM}
+        \label{fig:lstm}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Graphs/GRU.png}
+        \caption{Performance of GRU}
+        \label{fig:gru}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Graphs/BERT.png}
+        \caption{Performance of BERT}
+        \label{fig:bert}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{Graphs/Subset Accuracy Comparison Across Algorithms.png}
+    \caption{Subset Accuracy Comparison Across All Models}
+    \label{fig:subset_accuracy_final}
+\end{figure}
+
+
+\subsubsection{Analysis}
+
+The tested models revealed that \textbf{BERT} produced the highest performance by reaching a Subset Accuracy value of \textbf{0.9416} due to its efficient contextual analysis in multi-label tasks. The three most successful systems in this assessment were \textbf{XGBoost} with 0.9171 accuracy and \textbf{GRU} and \textbf{LSTM} reaching 0.9068 to 0.9066 respectively.
+The \textbf{CNN} model displayed strong ability to detect local text patterns by reaching a Subset Accuracy value of 0.8930. The traditional ensemble techniques \textbf{SVM}, \textbf{Decision Tree} and \textbf{Random Forest} obtained high performance metrics (0.8928, 0.8722 and 0.9047 respectively), yet simpler algorithms demonstrated reduced success such as \textbf{Logistic Regression} with 0.7926 and \textbf{Naive Bayes} at 0.7228.The results underscore the advantage of deep learning, particularly transformer-based architectures in handling complex multi-label classification problems in cyberbullying detection.
+
+% \clearpage 
+
+\subsection{Discussion}
+
+The prediction results for Logistic Regression together with Naive Bayes and several other models exhibit medium accuracy levels in Table \ref{tab:model_observations}. Support Vector Machines (SVM) deployed as part of ensemble methods with Random Forest and XGBoost achieves notable accuracy gains for the system. The deep learning models LSTM and GRU process sequential data with greater competence than traditional models, leading to more precise accuracy results. BERT transformer-based model reaches the highest accuracy level because it excels at contextual word interpretation. Complex text patterns are easier to detect through the Transformer architecture when systems perform analysis on cyberbullying content.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|>{\centering\arraybackslash}m{3.5cm}|>{\centering\arraybackslash}m{2cm}|>{\raggedright\arraybackslash}m{6cm}|}
+\hline
+\textbf{Model} & \textbf{Accuracy} & \textbf{Observations} \\
+\hline
+Logistic Regression & 0.7926 & Performs reasonably well on structured data; limited in capturing textual context. \\
+\hline
+Naive Bayes & 0.7228 & Fast and simple; assumes feature independence which limits contextual understanding. \\
+\hline
+Support Vector Machine (SVM) & 0.8928 & Effective in high-dimensional spaces; sensitive to kernel and parameter tuning. \\
+\hline
+Decision Tree & 0.8722 & Interpretable; tends to overfit if not pruned or regularized. \\
+\hline
+Random Forest & 0.9047 & Reduces overfitting via ensemble learning; handles imbalanced data better. \\
+\hline
+XGBoost & 0.9171 & High accuracy and efficient; requires careful hyperparameter tuning. \\
+\hline
+CNN & 0.8930 & Captures local patterns in text effectively; lacks sequential understanding. \\
+\hline
+LSTM & 0.9066 & Excels at sequential data modeling; slower to train than CNN. \\
+\hline
+GRU & 0.9068 & Similar to LSTM but faster and slightly more efficient; handles long-term dependencies. \\
+\hline
+BERT (Transformer) & \textbf{0.9416} & Pre-trained contextual embeddings significantly improve performance; highest accuracy across all models. \\
+\hline
+\end{tabular}
+\caption{Model-wise Performance and Observations}
+\label{tab:model_observations}
+\end{table}
+
+
+
+\noindent
+
+
+\section{Conclusion}
+\input{sn-conclusion}
+
+\bibliography{sn-bibliography}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+
+\end{document}

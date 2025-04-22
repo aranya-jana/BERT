@@ -1,0 +1,67 @@
+The following algorithm outlines the steps involved in the cyberbullying detection pipeline:
+
+\begin{algorithmic}
+\State \textbf{Input:} Raw Social Media Comments Datasets which include comments from Facebook, Instagram and X(Formerly Twitter) in English, Bengali, Benglish, Hindi and Hinglish.
+\State \textbf{Output:} Binary or Multi-class classification.
+
+\State \textbf{Step 1: Data Preprocessing}
+\State The process starts by removing all mentions together with addresses, HTML components and Unicode exceptions.
+\State Convert text to lowercase.
+\State Normalize whitespace.
+\State Detect language (fastText or langDetect).
+\State The text requires tokenization through IndicBERT or mBERT as a multilingual tokenizer.
+
+\State \textbf{Step 2: Feature Extraction}
+\State Sentiment analysis requires VADER and BERT-sentiment model as analysis tools.
+\State The system employs DistilBERT which received emotion detection training from emotion datasets to perform analysis.
+
+\State \textbf{Step 3: Model Training}
+\State The CNN requires text embeddings as an input to perform spatial feature extraction.
+\State An Augmented BERT model should be trained to extract contextual features.
+\State The Ensemble Classifier uses Random Forest together with XGBoost and Logistic Regression to combine its output results.
+
+\State \textbf{Step 4: Prediction \& Classification}
+\State An overall classification rating gets generated for each posted comment.
+\State The model identifies cyberbullying when it occurs through various categories and other specified as non\_cyberbullying.
+
+
+\end{algorithmic}
+\\
+\textbf{ }
+\\
+\begin{algorithmic}
+\State \textbf{BERT Equation}
+\\
+\State BERT fine-tuning is done by minimizing the binary cross-entropy loss for each label:
+
+\textbf{BERT Pre-training Loss Function}
+
+The total BERT loss \( \mathcal{L}_{\text{BERT}} \) is the sum of the Masked Language Modeling (MLM) loss and the Next Sentence Prediction (NSP) loss:
+\\
+\[
+\mathcal{L}_{\text{BERT}} = \mathcal{L}_{\text{MLM}} + \mathcal{L}_{\text{NSP}}
+\]
+\\
+\textbf{1. Masked Language Modeling (MLM) Loss}
+
+Let \( \mathcal{M} \subset \{1, 2, \dots, n\} \) be the set of masked token positions in an input sequence \( x = \{x_1, x_2, \dots, x_n\} \). The MLM loss is:
+\\
+\[
+\mathcal{L}_{\text{MLM}} = - \sum_{i \in \mathcal{M}} \log P(x_i \mid x_{\setminus i})
+\]
+
+\textbf{2. Next Sentence Prediction (NSP) Loss}
+\\
+Let \( y \in \{0, 1\} \) be the NSP label (1 = next sentence, 0 = not next), and \( p \) be the predicted probability from the NSP classifier (typically from the [CLS] token output). Then:
+\\
+\[
+\mathcal{L}_{\text{NSP}} = - \left[ y \log(p) + (1 - y) \log(1 - p) \right]
+\]
+\\
+\textbf{Combined Loss}
+\\
+\[
+\mathcal{L}_{\text{BERT}} = - \sum_{i \in \mathcal{M}} \log P(x_i \mid x_{\setminus i}) - \left[ y \log(p) + (1 - y) \log(1 - p) \right]
+\]
+
+\end{algorithmic}
